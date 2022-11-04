@@ -20,14 +20,14 @@
 }
 
 .movie-card {
-  max-width: 100%;
+  width: 100%;
 
   @media screen and (min-width: 768px) {
-    max-width: calc((100% - 32px) / 2);
+    width: calc((100% - 32px) / 2);
   }
 
   @media screen and (min-width: 1280px) {
-    max-width: calc((100% - 32px) / 3);
+    width: calc((100% - 32px) / 3);
   }
 }
 
