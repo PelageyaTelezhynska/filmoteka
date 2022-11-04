@@ -1,7 +1,7 @@
 .movies.section {
   margin: 20px 0px 40px 0px;
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
     margin: 60px 0px;
   }
 }
@@ -9,12 +9,16 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
-  @media screen and (min-width: 768px) {
+
+  @include mobile {
+    gap: 20px;
+  }
+
+  @include tablet {
     gap: 32px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @include desktop {
     gap: 16px;
   }
 }
@@ -22,11 +26,11 @@
 .movie-card {
   width: 100%;
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
     width: calc((100% - 32px) / 2);
   }
 
-  @media screen and (min-width: 1280px) {
+  @include desktop {
     width: calc((100% - 32px) / 3);
   }
 }
@@ -35,11 +39,11 @@
   height: 402px;
   width: 100%;
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
     height: 455px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @include desktop {
     height: 574px;
   }
 }
@@ -49,7 +53,7 @@
   font-size: 12px;
   line-height: 1.33;
 
-  @media screen and (min-width: 1280px) {
+  @include desktop {
     font-size: 20px;
     line-height: 1.2;
   }
