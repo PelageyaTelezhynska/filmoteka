@@ -1,12 +1,12 @@
 .header-lib {
-  background-image: url('/src/images/header/header320-min.jpg');
+  background-image: url('/src/images/header/header320-min.png');
   background-size: cover;
 
   @include tablet {
-    background-image: url('/src/images/header/header768-min.jpg');
+    background-image: url('/src/images/header/header768-min.png');
   }
   @include desktop {
-    background-image: url('/src/images/header/header1200-min.jpg');
+    background-image: url('/src/images/header/header1200-min.png');
   }
 }
 .header-content {

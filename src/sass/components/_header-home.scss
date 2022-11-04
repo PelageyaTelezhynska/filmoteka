@@ -5,35 +5,35 @@
 .header__content {
   padding-top: 40px;
   padding-bottom: 44px;
-  background-image: url('../images/header/header320-min.jpg');
+  background-image: url('../images/header/header320-min.png');
   background-repeat: no-repeat;
   background-size: cover;
   height: 230px;
   @media screen and (max-width: 767px) and (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-    background-image: url('../images/header/header320@2x-min.jpg');
+    background-image: url('../images/header/header320@2x-min.png');
   }
 
   //   @media screen and (min-width: 768px)
   @include tablet {
-    background-image: url('../images/header/header768-min.jpg');
+    background-image: url('../images/header/header768-min.png');
 
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
-      background-image: url('../images/header/header768@2x-min.jpg');
+      background-image: url('../images/header/header768@2x-min.png');
     }
   }
 
   @include desktop {
     // padding: 40px 32px 44px 32px;
-    background-image: url('../images/header/header1200-min.jpg');
+    background-image: url('../images/header/header1200-min.png');
 
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
-      background-image: url('../images/header/header1200@2x-min.jpg');
+      background-image: url('../images/header/header1200@2x-min.png');
     }
   }
 }
