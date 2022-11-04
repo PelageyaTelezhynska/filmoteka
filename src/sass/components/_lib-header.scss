@@ -1,17 +1,17 @@
 .header-lib {
   background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-    url('/src/images/header/Rectangle\ 3.jpg');
+    url('/src/images/header/Rectangle320.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
   @include tablet {
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-      url('/src/images/header/Rectangle\ 2.jpg');
+      url('/src/images/header/Rectangle768.jpg');
   }
   @include desktop {
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-      url('/src/images/header/Rectangle\ 1.jpg');
+      url('/src/images/header/Rectangle1200.jpg');
   }
 }
 
