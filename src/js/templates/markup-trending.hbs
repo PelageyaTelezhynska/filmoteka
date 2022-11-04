@@ -1,0 +1,20 @@
+{{#each this}}
+  {{!-- <a class="movie-card-link" href='https://image.tmdb.org/t/p/w500{{backdrop_path}}'> --}}
+    <div class='movie-card'>
+      <img src='https://image.tmdb.org/t/p/w500{{poster_path}}' alt='{{title}}{{name}}' loading='lazy' />
+      <div class='info'>
+        <h2 class='movie-title'>
+          {{title}}{{name}}
+        </h2>
+        <p class='movie-info'>
+            {{!-- {{genre_ids}} --}}
+            {{!-- {{#each genres}}
+                {{name}}
+            {{/each}} --}}
+             | 
+            {{release_date}}{{first_air_date}}
+        </p>
+      </div>
+    </div>
+  {{!-- </a> --}}
+{{/each}}
