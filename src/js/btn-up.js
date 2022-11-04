@@ -1,6 +1,6 @@
 // don't forget to hook up this script to index.html
 
-import throttle from 'lodash.throttle';
+// import throttle from 'lodash.throttle';
 const btnToTop = document.querySelector('.to-top');
 
 window.addEventListener('scroll', throttle(hideElOnScroll(btnToTop), 250));
