@@ -87,10 +87,6 @@
   border: none;
 }
 
-.header-sidenav-list {
-  display: flex;
-}
-
 .logo-name {
   display: none;
   @include tablet {
@@ -103,18 +99,6 @@
   }
 }
 
-.header-sidenav-link {
-  display: block;
-  font-size: 12px;
-  line-height: 14px;
-
-  text-transform: uppercase;
-  color: #ffffff;
-}
-
-.library-lib {
-  margin-left: 39px;
-}
 .library-lib::after {
   content: '';
   display: block;
