@@ -5,6 +5,8 @@
       class='movie-poster'
       src='https://image.tmdb.org/t/p/w500{{poster_path}}'
       alt='{{title}}{{name}}'
+      data-id='{{id}}'
+      onerror="this.onerror=null;this.src='https://sd.keepcalms.com/i-w600/keep-calm-poster-not-found.jpg';"
       loading='lazy'
     />
     <div class='info'>

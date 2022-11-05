@@ -4,17 +4,25 @@
     <h1 class="visually-hidden">Movie trailer searching site</h1>
 
     <!-- список, у який будуть рендеритися шаблони карток фільмів -->
-    <div class="movies__list" data-modal-open></div>
+    <div class="movies__list"></div>
 
     <!-- ----модалка для картки фільму -->
-    <div class="backdrop is-hidden" data-modal>
-      <div class="movie-modal">
-        <button type="button" class="btn-close" data-modal-close>
-          <svg class="icon-close" width="14" height="14">
-            <use href="./images/sprite.svg#icon-close"></use>
-          </svg>
+    <div class="movie-modal"></div>
+
+    <!--  Div для пагінації(хто буде робити її - переробить під себе) -->
+
+    <div class="pagination section">
+      <div class="pagination__wrap container">
+        <!-- <button class="pagination__arrow pagination__arrow--left" type="button">
+          &#60;
         </button>
-        <div class="wrap-disc"></div>
+        <ul class="pagination__pages"></ul>
+        <button
+          class="pagination__arrow pagination__arrow--right"
+          type="button"
+        >
+          &#62;
+        </button> -->
       </div>
     </div>
 
