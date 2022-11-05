@@ -66,13 +66,14 @@
   padding: 0;
   width: 30px;
   height: 30px;
-  // border: transparent;
+  border: transparent;
   background-color: transparent;
-  color: #000000;
+  // color: #000000;
   display: flex;
   align-items: center;
   justify-content: center;
   outline: transparent;
+  cursor: pointer;
 
   &:hover,
   &:focus {
@@ -150,13 +151,24 @@
 }
 
 .accent-detail {
-  display: inline-block;
-  //  align-content: center;
-  color: $headerTextColor;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #ffffff;
   border-radius: 5px;
   width: 36px;
   height: 16px;
   background-color: #ff6b01;
+}
+
+.disc-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.disc-space {
+  margin: 0 3px;
 }
 
 .movie-disc-title {
@@ -213,6 +225,7 @@
   font-size: 12px;
   line-height: 16px;
   text-transform: uppercase;
+  cursor: pointer;
 
   @include tablet {
     width: 125px;

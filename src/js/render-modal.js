@@ -1,6 +1,8 @@
 export function renderMarkupModal(data) {
   const markup = ` <img class='modal-poster'
-   src='https://image.tmdb.org/t/p/w500${data.poster_path}' alt=${data.title} width='240'/>
+   src='https://image.tmdb.org/t/p/w500${data.poster_path}' alt=${
+    data.title
+  } width='240'/>
   <div>
     <div>
       <h2 class='modal-movie-title'>${data.title}</h2>
@@ -13,13 +15,16 @@ export function renderMarkupModal(data) {
           <p class='movie-label'>Genre</p>
         </div>
         <div class='wrap-movie-disc'>
-          <p class='movie-disc'>
-            <span class='accent-detail'> ${data.vote_average}</span><span
-              class='movie-label'> / </span>${data.vote_count}
+          <p class='movie-disc disc-wrap'>
+            <span class='accent-detail'>
+             ${data.vote_average.toFixed(1)}</span>
+             <span class='movie-label disc-space'> / </span>${data.vote_count}
           </p>
-          <p class='movie-disc'>${data.popularity}</p>
+          <p class='movie-disc'>${data.popularity.toFixed(1)}</p>
           <p class='movie-disc movie-disc-title'>${data.original_title}</p>
-          <p class='movie-disc movie-disc-genres'>${data.genres[0].name}, ${data.genres[1].name}</p>
+          <p class='movie-disc movie-disc-genres'>${data.genres[0].name}, ${
+    data.genres[1].name
+  }</p>
         </div>
       </div>
 
