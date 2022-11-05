@@ -1,4 +1,5 @@
-import { renderMarkupModal, filmItems } from './render-modal';
+import { renderMarkupModal } from './render-modal';
+import { fetchModal } from './fetch-modal';
 
 const refs = {
   openModalCard: document.querySelector('[data-modal-open]'),
@@ -16,11 +17,13 @@ function openModal(evt) {
   if (evt.currentTarget === evt.target) {
     return;
   }
-  // const currentFilm = evt.target.closest('.js-item');
-  // const currentId = Number(currentFilm.dataset.id);
-  // console.log(currentId);
+  const currentFilm = evt.target.closest('.js-item');
+  const currentId = Number(currentFilm.dataset.id);
+  fetchModal(currentId).then(data => {
+    console.dir(data);
+    renderMarkupModal(data);
+  });
   toggleModal();
-  renderMarkupModal(filmItems);
 }
 
 function toggleModal() {

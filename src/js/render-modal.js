@@ -1,21 +1,36 @@
-export const filmItems = [
-  {
-    poster_path:
-      'https://i11.haber7.net//haber/haber7/photos/2022/30/VZbHy_1658831645_6941.jpg',
-    id: 1,
-    title: 'Bullet Train',
-    vote: 7.3,
-    votes: 1250,
-    popularity: 500.2,
-    original_title: 'Bullet Train',
-    genre: 'action, thriller',
-    about:
-      'Take a trip to Tokyo. Buy a ticket for the near-mythical bullet train. And as that sleek metal snake rockets to a staggering top speed of 200mph, you’ll no doubt find yourself thinking: this would make an amazing setting for an all-guns-blazing action-comedy.',
-  },
-];
-
-import markupModal from './templates/markup-modal.hbs';
-
 export function renderMarkupModal(data) {
-  document.querySelector('.wrap-disc').innerHTML = markupModal(data);
+  const markup = ` <img class='modal-poster' src=${data.poster_path} alt=${data.title} width='240' />
+  <div>
+    <div>
+      <h2 class='modal-movie-title'>${data.title}</h2>
+
+      <div class='wrap-flex'>
+        <div>
+          <p class='movie-label'>Vote / Votes</p>
+          <p class='movie-label'>Popularity</p>
+          <p class='movie-label'>Original Title</p>
+          <p class='movie-label'>Genre</p>
+        </div>
+        <div class='wrap-movie-disc'>
+          <p class='movie-disc'>
+            <span class='accent-detail'> ${data.vote_average}</span><span
+              class='movie-label'> / </span>${data.vote_count}
+          </p>
+          <p class='movie-disc'>${data.popularity}</p>
+          <p class='movie-disc movie-disc-title'>${data.original_title}</p>
+          <p class='movie-disc movie-disc-genres'>${data.genres[0].name}, ${data.genres[1].name}</p>
+        </div>
+      </div>
+
+      <h3 class='disc-title'>About</h3>
+      <p class='disc-text'>${data.overview}</p>
+    </div>
+    <div class='button-container'>
+      <button type='button' class='modal-btn'>add to watched</button>
+      <button type='button' class='modal-btn btn-queue'>
+        add to queue
+      </button>
+    </div>
+  </div>`;
+  document.querySelector('.wrap-disc').innerHTML = markup;
 }
