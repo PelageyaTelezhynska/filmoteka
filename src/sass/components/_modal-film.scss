@@ -66,12 +66,18 @@
   padding: 0;
   width: 30px;
   height: 30px;
-  border: transparent;
+  // border: transparent;
   background-color: transparent;
+  color: #000000;
   display: flex;
   align-items: center;
   justify-content: center;
   outline: transparent;
+
+  &:hover,
+  &:focus {
+    fill: #ff6b01;
+  }
 }
 
 .wrap-disc {
@@ -90,6 +96,7 @@
   display: block;
   max-width: 100%;
   margin-bottom: 20px;
+border-radius: 5px;
 
   @include tablet {
     width: 264px;
@@ -102,7 +109,7 @@
   }
 }
 
-.movie-title {
+.modal-movie-title {
   font-weight: 500;
   font-size: 20px;
   line-height: 23px;

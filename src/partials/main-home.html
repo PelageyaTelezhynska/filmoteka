@@ -4,13 +4,13 @@
     <h1 class="visually-hidden">Movie trailer searching site</h1>
 
     <!-- список, у який будуть рендеритися шаблони карток фільмів -->
-    <div class="movies__list"></div>
+    <div class="movies__list" data-modal-open></div>
 
     <!-- ----модалка для картки фільму -->
-    <div class="backdrop" data-modal>
+    <div class="backdrop is-hidden" data-modal>
       <div class="movie-modal">
         <button type="button" class="btn-close" data-modal-close>
-          <svg>
+          <svg class="icon-close" width="14" height="14">
             <use href="./images/sprite.svg#icon-close"></use>
           </svg>
         </button>
@@ -23,7 +23,7 @@
           />
           <div>
             <div>
-              <h2 class="movie-title">Bullet Train</h2>
+              <h2 class="modal-movie-title">Bullet Train</h2>
 
               <div class="wrap-flex">
                 <div>
