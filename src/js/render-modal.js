@@ -1,5 +1,6 @@
 export function renderMarkupModal(data) {
-  const markup = ` <img class='modal-poster' src=${data.poster_path} alt=${data.title} width='240' />
+  const markup = ` <img class='modal-poster'
+   src='https://image.tmdb.org/t/p/w500${data.poster_path}' alt=${data.title} width='240'/>
   <div>
     <div>
       <h2 class='modal-movie-title'>${data.title}</h2>
