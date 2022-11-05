@@ -1,0 +1,80 @@
+.footer {
+  background-color: $secondBackgroundColor;
+  color: $footerTextColor;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.17;
+
+  padding-top: 29px;
+  padding-bottom: 30px;
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  justify-content: center;
+
+  @include tablet {
+    font-size: 16px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    flex-direction: row;
+    gap: 0;
+  }
+
+  @include desktop {
+    padding-top: 30px;
+    padding-bottom: 28px;
+  }
+}
+
+.footer-wrap {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-text {
+  display: inline-flex;
+}
+
+.icon-favorite {
+  width: 14px;
+  height: 13px;
+  cursor: pointer;
+  fill: $movieInfoColor;
+  transition: transform $transition, fill $transition;
+
+  &:hover,
+  &:focus {
+    fill: $accentColor;
+    transform: scale(1.2);
+  }
+}
+
+.footer-btn {
+  margin: 0;
+  padding: 0;
+  border: none;
+
+  background-color: transparent;
+  font: inherit;
+  color: inherit;
+
+  span {
+    text-decoration: underline;
+    cursor: pointer;
+    transition: transform $transition;
+
+    &:hover,
+    &:focus {
+      transform: scale(1.5);
+      color: $movieMainTextColor;
+    }
+
+    // border-bottom: 1px solid $footerTextColor;
+    // &::after {
+    //     content: '';
+    //   border-bottom: 1px solid;
+
+    // }
+  }
+}
