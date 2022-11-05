@@ -1,8 +1,13 @@
-import Pagination from 'tui-pagination'
+import Pagination from 'tui-pagination';
+import { pageRender } from './page-render';
 
 const pagination = new Pagination(document.getElementById('pagination'), {
-    totalItems: 500,
-    itemsPerPage: 10,
+    totalItems: 1000,
+    itemsPerPage: 20,
     visiblePages: 5,
     centerAlign: true
+});
+
+pagination.on('afterMove', function(eventData) {
+    pageRender(eventData.page);
 });

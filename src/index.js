@@ -1,6 +1,6 @@
-import { init } from './js/initialization';
+import { pageRender } from './js/page-render';
 import './js/pagination';
 import './js/fetch-modal';
 import './js/modal-film';
 
-init();
+pageRender(1);
