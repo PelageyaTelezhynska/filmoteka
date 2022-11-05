@@ -1,11 +1,9 @@
 {{#each this}}
-  {{!-- <a class="movie-card-link" href='https://image.tmdb.org/t/p/w500{{backdrop_path}}'> --}}
-  <div class='movie-card'>
+  <div class='movie-card js-item' data-id='{{id}}'>
     <img
       class='movie-poster'
       src='https://image.tmdb.org/t/p/w500{{poster_path}}'
       alt='{{title}}{{name}}'
-      data-id='{{id}}'
       onerror="this.onerror=null;this.src='https://sd.keepcalms.com/i-w600/keep-calm-poster-not-found.jpg';"
       loading='lazy'
     />
@@ -14,14 +12,10 @@
         {{title}}{{name}}
       </h2>
       <p class='movie-info'>
-        {{!-- {{genre_ids}} --}}
-        {{!-- {{#each genres}}
-                {{name}}
-            {{/each}} --}}
+        {{genres_name_str}}
         |
         {{release_date}}{{first_air_date}}
       </p>
     </div>
   </div>
-  {{! </a> }}
 {{/each}}
