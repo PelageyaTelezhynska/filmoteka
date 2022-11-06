@@ -17,10 +17,12 @@ function openModal(evt) {
   if (evt.currentTarget === evt.target) {
     return;
   }
+  document.querySelector('.wrap-disc').innerHTML = '';
+
   const currentFilm = evt.target.closest('.js-item');
   const currentId = Number(currentFilm.dataset.id);
   fetchModal(currentId).then(data => {
-    console.dir(data);
+    // console.dir(data);
     renderMarkupModal(data);
   });
   toggleModal();
