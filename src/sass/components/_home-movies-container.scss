@@ -20,11 +20,12 @@
 
   @include desktop {
     gap: 16px;
+    justify-content: left;
   }
 }
 
 .movie-card {
-  width: 100%;
+  max-width: 100%;
 
   @include tablet {
     width: calc((100% - 32px) / 2);
