@@ -10,8 +10,7 @@ export function pageRender(pageNum) {
         })
         const genresArr = JSON.parse(localStorage.getItem('genres'));
         data.results.map((elem, idx) => {
-            data.results[idx].genres_name = [];
-            let genresName = data.results[idx].genres_name;
+            const genresName = [];
             elem.genre_ids.map((genreId) => {
                 const genreEl = genresArr.find(genre => genre.id === genreId);                
                 genresName.push(genreEl?.name);
