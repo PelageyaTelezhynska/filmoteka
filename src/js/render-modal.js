@@ -1,3 +1,5 @@
+import { addToLocale } from './localeStorage-watch&queue';
+
 export function renderMarkupModal(data) {
   const markup = ` <img class='modal-poster'
    src='https://image.tmdb.org/t/p/w500${data.poster_path}' alt=${
@@ -32,11 +34,13 @@ export function renderMarkupModal(data) {
       <p class='disc-text'>${data.overview}</p>
     </div>
     <div class='button-container'>
-      <button type='button' class='modal-btn'>add to watched</button>
+      <button type='button' class='modal-btn btn-watched'>add to watched</button>
       <button type='button' class='modal-btn btn-queue'>
         add to queue
       </button>
     </div>
   </div>`;
   document.querySelector('.wrap-disc').innerHTML = markup;
+
+  addToLocale(data);
 }
