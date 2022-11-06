@@ -1,6 +1,6 @@
 import { renderMarkupModal } from './render-modal';
 import { fetchModal } from './fetch-modal';
-
+import { spinnerOn, spinnerOff } from './spinner';
 const refs = {
   openModalCard: document.querySelector('[data-modal-open]'),
   closeModalBtn: document.querySelector('[data-modal-close]'),
@@ -21,10 +21,13 @@ function openModal(evt) {
 
   const currentFilm = evt.target.closest('.js-item');
   const currentId = Number(currentFilm.dataset.id);
-  fetchModal(currentId).then(data => {
-    // console.dir(data);
-    renderMarkupModal(data);
-  });
+  fetchModal(currentId)
+    .then(data => {
+      // console.dir(data);
+      renderMarkupModal(data);
+    })
+    .finally(() => spinnerOff());
+  spinnerOn();
   toggleModal();
 }
 
