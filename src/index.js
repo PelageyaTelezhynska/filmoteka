@@ -1,7 +1,3 @@
-
-import { init } from './js/initialization'
+import { init } from './js/initialization';
 
 init();
-
-
-

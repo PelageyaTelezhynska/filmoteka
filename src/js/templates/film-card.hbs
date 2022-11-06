@@ -1,0 +1,17 @@
+{{#each this}}
+
+  <div>
+    <img
+      class='movie-img'
+      src='https://image.tmdb.org/t/p/w500{{poster_path}}'
+      alt='{{original_title}}'
+      loading='lazy'
+    />
+    <h2 class='movie-name'>{{original_title}},</h2>
+    <span class='movie__description'>
+      {{!-- {{#each genre}}{{this}} {{/each}} --}}
+      |
+      {{release_year}}</span>
+  </div>
+
+{{/each}}
