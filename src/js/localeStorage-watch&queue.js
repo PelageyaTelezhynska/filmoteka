@@ -1,10 +1,9 @@
-let watchedList = [];
-let queueList = [];
-
 const WATCHED = 'Watched';
 const QUEUE = 'Queue';
 
 export function addToLocale(data) {
+  const filmObject = JSON.stringify(data);
+
   const refs = {
     watched: document.querySelector('.btn-watched'),
     queue: document.querySelector('.btn-queue'),
@@ -13,18 +12,54 @@ export function addToLocale(data) {
   refs.watched.addEventListener('click', addToWatched);
   refs.queue.addEventListener('click', addToQueue);
 
-  function addToWatched() {
-    watchedList.push(data);
+  try {
+    if (localStorage.getItem(WATCHED).includes(filmObject)) {
+      refs.watched.classList.add('active-btn');
+      refs.watched.textContent = 'REMOVE FROM WATCHED';
+    }
+  } catch (error) {}
 
-    localStorage.setItem(WATCHED, JSON.stringify(watchedList));
+  try {
+    if (localStorage.getItem(QUEUE).includes(filmObject)) {
+      refs.queue.classList.add('active-btn');
+      refs.queue.textContent = 'REMOVE FROM QUEUE';
+    }
+  } catch (error) {}
+
+  function addToWatched() {
+    let watchedList = JSON.parse(localStorage.getItem(WATCHED)) || [];
+
+    if (watchedList.find(el => el.id === data.id)) {
+      refs.watched.classList.remove('active-btn');
+      refs.watched.textContent = 'ADD TO WATCHED';
+      return;
+    } else {
+      watchedList.push(data);
+
+      localStorage.setItem(WATCHED, JSON.stringify(watchedList));
+
+      refs.watched.classList.add('active-btn');
+      refs.watched.textContent = 'REMOVE FROM WATCHED';
+    }
 
     refs.watched.removeEventListener('click', addToWatched);
   }
 
   function addToQueue() {
-    queueList.push(data);
+    let queueList = JSON.parse(localStorage.getItem(QUEUE)) || [];
 
-    localStorage.setItem(QUEUE, JSON.stringify(queueList));
+    if (queueList.find(el => el.id === data.id)) {
+      refs.queue.classList.remove('active-btn');
+      refs.queue.textContent = 'ADD TO WATCHED';
+      return;
+    } else {
+      queueList.push(data);
+
+      localStorage.setItem(QUEUE, JSON.stringify(queueList));
+
+      refs.queue.classList.add('active-btn');
+      refs.queue.textContent = 'REMOVE FROM QUEUE';
+    }
 
     refs.queue.removeEventListener('click', addToQueue);
   }
