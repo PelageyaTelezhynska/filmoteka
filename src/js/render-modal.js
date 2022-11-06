@@ -10,7 +10,7 @@ export function renderMarkupModal(data) {
       <h2 class='modal-movie-title'>${data.title}</h2>
 
       <div class='wrap-flex'>
-        <div>
+        <div class="labels-wrap">
           <p class='movie-label'>Vote / Votes</p>
           <p class='movie-label'>Popularity</p>
           <p class='movie-label'>Original Title</p>
@@ -24,9 +24,9 @@ export function renderMarkupModal(data) {
           </p>
           <p class='movie-disc'>${data.popularity.toFixed(1)}</p>
           <p class='movie-disc movie-disc-title'>${data.original_title}</p>
-          <p class='movie-disc movie-disc-genres'>${data.genres[0].name}, ${
-    data.genres[1].name
-  }</p>
+          <p class='movie-disc movie-disc-genres'>${data.genres
+            .map(genre => genre.name)
+            .join(', ')}</p>
         </div>
       </div>
 
