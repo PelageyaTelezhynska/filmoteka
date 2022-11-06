@@ -1,15 +1,11 @@
 import { renderMarkupModal } from './render-modal';
 import { fetchModal } from './fetch-modal';
-import {openModalTrailer} from './fetch-trailer';
-// const BASE_URL = 'https://api.themoviedb.org/3';
-// const API_KEY = 'fa9433e46ed4abfaeb75bcf31f473feb';
-import YouTube from 'react-youtube';
-import axios from 'axios';
+const BASE_URL = 'https://api.themoviedb.org/3';
+const API_KEY = 'fa9433e46ed4abfaeb75bcf31f473feb';
 
 
 
-
-export const refs = {
+const refs = {
   openModalCard: document.querySelector('[data-modal-open]'),
   closeModalBtn: document.querySelector('[data-modal-close]'),
   modal: document.querySelector('[data-modal]'),

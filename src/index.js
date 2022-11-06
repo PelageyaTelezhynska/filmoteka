@@ -5,6 +5,7 @@ import './js/fetch-modal';
 import './js/modal-film';
 // import './js/render-storage';
 import './js/fetch-trailer';
+import './js/api-servise';
 
 savingGenresArr();
 pageRender(1);
