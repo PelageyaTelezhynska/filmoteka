@@ -39,6 +39,9 @@ export function renderMarkupModal(data) {
         add to queue
       </button>
     </div>
+    <button type='button' class="modal__button-play trailer-button" ">
+    <img class="modal__img-play" src="https://www.freepnglogos.com/uploads/play-button-png/play-button-file-youtube-play-buttom-icon-svg-wikimedia-commons-27.png" alt="play trailer" width="50px" height="50px" />
+    </button>
   </div>`;
   document.querySelector('.wrap-disc').innerHTML = markup;
 

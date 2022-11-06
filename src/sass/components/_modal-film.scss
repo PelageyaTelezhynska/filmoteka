@@ -216,6 +216,17 @@
     padding-left: 8px;
   }
 }
+.modal__button-play {
+  border-color: transparent;
+  background: transparent;
+  margin-left: 83px;
+  margin-top: 20px;
+}
+
+.modal__button-play:hover {
+  box-shadow: 10px 5px 5px gray;
+}
+
 
 .modal-btn {
   display: inline-block;
