@@ -1,7 +1,15 @@
 import { renderMarkupModal } from './render-modal';
 import { fetchModal } from './fetch-modal';
+import {openModalTrailer} from './fetch-trailer';
+// const BASE_URL = 'https://api.themoviedb.org/3';
+// const API_KEY = 'fa9433e46ed4abfaeb75bcf31f473feb';
+import YouTube from 'react-youtube';
+import axios from 'axios';
 
-const refs = {
+
+
+
+export const refs = {
   openModalCard: document.querySelector('[data-modal-open]'),
   closeModalBtn: document.querySelector('[data-modal-close]'),
   modal: document.querySelector('[data-modal]'),
@@ -9,9 +17,11 @@ const refs = {
   backdrop: document.querySelector('.backdrop'),
 };
 
+
 refs.openModalCard.addEventListener('click', openModal);
 refs.closeModalBtn.addEventListener('click', toggleModal);
 refs.backdrop.addEventListener('click', onBackdropClick);
+
 
 function openModal(evt) {
   if (evt.currentTarget === evt.target) {
