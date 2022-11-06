@@ -1,7 +1,5 @@
 import { Spinner } from 'spin.js';
-const bodyEl = document.querySelector('body');
-
-console.log(bodyEl);
+const mainEl = document.querySelector('main');
 
 const opts = {
   lines: 13, // The number of lines to draw
@@ -26,9 +24,9 @@ const opts = {
 const spinner = new Spinner(opts);
 
 export function spinnerOn() {
-  spinner.spin(bodyEl);
+  spinner.spin(mainEl);
 }
 
 export function spinnerOff() {
-  spinner.stop(bodyEl);
+  spinner.stop(mainEl);
 }
