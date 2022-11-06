@@ -1,18 +1,5 @@
-// const filmItems = [
-//   {
-//     poster_path:
-//       'https://i11.haber7.net//haber/haber7/photos/2022/30/VZbHy_1658831645_6941.jpg',
-//     id: 1,
-//     title: 'Bullet Train',
-//     vote: 7.3,
-//     votes: 1250,
-//     popularity: 100.2,
-//     original_title: 'Bullet Train',
-//     genre: 'action, thriller',
-//     about:
-//       'Take a trip to Tokyo. Buy a ticket for the near-mythical bullet train. And as that sleek metal snake rockets to a staggering top speed of 200mph, you’ll no doubt find yourself thinking: this would make an amazing setting for an all-guns-blazing action-comedy.',
-//   },
-// ];
+import { renderMarkupModal } from './render-modal';
+import { fetchModal } from './fetch-modal';
 
 const refs = {
   openModalCard: document.querySelector('[data-modal-open]'),
@@ -30,6 +17,14 @@ function openModal(evt) {
   if (evt.currentTarget === evt.target) {
     return;
   }
+  document.querySelector('.wrap-disc').innerHTML = '';
+
+  const currentFilm = evt.target.closest('.js-item');
+  const currentId = Number(currentFilm.dataset.id);
+  fetchModal(currentId).then(data => {
+    // console.dir(data);
+    renderMarkupModal(data);
+  });
   toggleModal();
 }
 

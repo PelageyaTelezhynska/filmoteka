@@ -55,8 +55,6 @@
 }
 
 .logo__icon {
-  background-image: url('../images/film.svg');
-
   @include tablet {
     margin-right: 8px;
   }
