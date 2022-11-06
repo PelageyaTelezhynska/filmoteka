@@ -1,5 +1,5 @@
 <header class="header-lib">
-    <div class="header__content container">
+    <div class="header__content container header-lib__content">
     <nav class="header__navigation">
       <a href="index.html" class="header-logo">
         <svg class="logo-icon">
@@ -25,4 +25,24 @@
         <button class="btn watched" type="button">Watched</button>
         <button class="btn queue" type="button">Queue</button>
       </div>
+
+       <div class="themetoggle__container">
+        <button type="button" class="themetoggle__btn">
+        <svg
+          class="themetoggle__icon"
+          width="30px"
+          height="30px"
+          aria-label="toggle theme"
+        >
+          <use
+            class="themetoggle__icon-dark"
+            href="./images/sprite.svg#moon"
+          ></use>
+          <use
+            class="themetoggle__icon-light"
+            href="./images/sprite.svg#sun"
+          ></use>
+        </svg>
+      </button>
+       </div>
 </header>

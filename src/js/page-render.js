@@ -1,7 +1,10 @@
 import { renderMarkupTrending } from './render-trending';
 import { fetchTrending } from './fetch-trending';
 
-import { spinnerOn, spinnerOff } from './spinner';
+
+import { toggleLightTheme } from './day-night-theme';
+
+
 export function pageRender(pageNum) {
   fetchTrending(pageNum)
     .then(data => {
@@ -26,6 +29,9 @@ export function pageRender(pageNum) {
       });
       console.log(data.results);
       renderMarkupTrending(data.results);
+
+      toggleLightTheme();
+
     })
     .finally(() => spinnerOff());
   spinnerOn();
