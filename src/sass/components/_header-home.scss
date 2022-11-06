@@ -1,40 +1,42 @@
 .header {
-  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9));
+  background: linear-gradient(rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.82));
+  background-image: url('../images/header/header320-min.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  @media screen and (max-width: 767px) and (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: url('../images/header/header320@2x-min.png');
+  }
+
+  @include tablet {
+    background-image: url('../images/header/header768-min.png');
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url('../images/header/header768@2x-min.png');
+    }
+  }
+
+  @include desktop {
+    background-image: url('../images/header/header1200-min.png');
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url('../images/header/header1200@2x-min.png');
+    }
+  }
 }
 
 .header__content {
   padding-top: 40px;
   padding-bottom: 44px;
-  background-image: url('../images/header/header320-min.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
   height: 230px;
-  @media screen and (max-width: 767px) and (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-    background-image: url('../images/header/header320@2x-min.jpg');
-  }
 
-  //   @media screen and (min-width: 768px)
   @include tablet {
-    background-image: url('../images/header/header768-min.jpg');
-
-    @media (min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
-      background-image: url('../images/header/header768@2x-min.jpg');
-    }
-  }
-
-  @include desktop {
-    // padding: 40px 32px 44px 32px;
-    background-image: url('../images/header/header1200-min.jpg');
-
-    @media (min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
-      background-image: url('../images/header/header1200@2x-min.jpg');
-    }
+    height: 216px;
   }
 }
 
@@ -53,10 +55,12 @@
 }
 
 .logo__icon {
-  background-image: url('../images/film.svg');
-
   @include tablet {
     margin-right: 8px;
+  }
+
+  @include desktop {
+    margin-right: 10px;
   }
 }
 
@@ -90,8 +94,12 @@
   }
 }
 
-.header__sidenav__link--current {
-  border-bottom: 2px solid $accentColor;
+.header__sidenav__link--current::after {
+  content: '';
+  width: 100%;
+  height: 3px;
+  background-color: $accentColor;
+  display: block;
 }
 
 .search__form {
@@ -140,7 +148,8 @@
     }
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     border: transparent;
     border-bottom: 1px solid $accentColor;
   }

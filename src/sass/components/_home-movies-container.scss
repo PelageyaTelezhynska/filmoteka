@@ -1,0 +1,70 @@
+.movies.section {
+  margin: 20px 0px 40px 0px;
+
+  @include tablet {
+    margin: 60px 0px;
+  }
+}
+.movies__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @include mobile {
+    gap: 20px;
+  }
+
+  @include tablet {
+    gap: 32px;
+  }
+
+  @include desktop {
+    gap: 16px;
+  }
+}
+
+.movie-card {
+  width: 100%;
+
+  @include tablet {
+    width: calc((100% - 32px) / 2);
+  }
+
+  @include desktop {
+    width: calc((100% - 32px) / 3);
+  }
+}
+
+.movie-poster {
+  height: 402px;
+  width: 100%;
+
+  @include tablet {
+    height: 455px;
+  }
+
+  @include desktop {
+    height: 574px;
+  }
+}
+
+.movie-title,
+.movie-info {
+  font-size: 12px;
+  line-height: 1.33;
+
+  @include desktop {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+}
+
+.movie-title {
+  margin: 10px 0px 0px 0px;
+  text-transform: uppercase;
+  color: $movieMainTextColor;
+}
+.movie-info {
+  margin: 0;
+  color: $movieInfoColor;
+}

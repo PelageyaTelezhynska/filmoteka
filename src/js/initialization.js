@@ -32,5 +32,5 @@ export function searchMovie(e) {
 }
 
 function clearCard() {
-  refs.containerCard.innerHTML = '';
+ document.querySelector('.movies__list') = '';
 }

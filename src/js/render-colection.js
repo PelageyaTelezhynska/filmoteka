@@ -1,6 +1,5 @@
 import markup from './templates/film-card.hbs';
-import { refs } from './refs';
 
 export default function markupColection(data) {
-  refs.containerCard.innerHTML = markup(data);
+  document.querySelector('.movies__list').innerHTML = markup(data);
 }
