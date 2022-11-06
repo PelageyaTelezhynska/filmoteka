@@ -1,7 +1,8 @@
-import { renderMarkupTrending } from './render-trending'
-import { fetchTrending } from './fetch-trending'
-
+import { renderMarkupTrending } from './render-trending';
+import { fetchTrending } from './fetch-trending';
+import { spinnerOn, spinnerOff } from './spinner';
 export function pageRender(pageNum) {
+
     fetchTrending(pageNum).then(data => {
         data.results.map(elem => {
             if (elem.release_date) elem.release_date = elem.release_date.slice(0, 4);
@@ -23,5 +24,8 @@ export function pageRender(pageNum) {
         })
         console.log(data.results);
         renderMarkupTrending(data.results);
+
     })
+    .finally(() => spinnerOff());
+  spinnerOn();
 }
