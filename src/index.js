@@ -1,3 +1,4 @@
+// import { init } from './js/initialization';
 import { pageRender } from './js/page-render';
 import { savingGenresArr } from './js/saving-genres-arr';
 import './js/pagination';
@@ -8,3 +9,4 @@ import './js/day-night-theme';
 
 savingGenresArr();
 pageRender(1);
+// init();

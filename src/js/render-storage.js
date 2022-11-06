@@ -32,7 +32,15 @@ function renderMarkupStorage(data) {
     ${title}
     </h2>
     <p class='movie-info'>
-    ${genres.map(genre => genre.name).join(', ')}
+    ${
+      genres.length > 3
+        ? genres
+            .slice(0, 2)
+            .concat([{ name: 'Other' }])
+            .map(genre => genre.name)
+            .join(', ')
+        : genres.map(genre => genre.name).join(', ')
+    }
       | ${release_date.slice(0, 4)}
       <span class='vote'> ${vote_average.toFixed(1)} </span>
     </p>
