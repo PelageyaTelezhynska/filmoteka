@@ -1,3 +1,13 @@
+// const arr = [{ name: 1 }, { name: 2 }, { name: 3 }];
+
+// console.log(arr);
+
+// console.log(arr.splice(3, 0, 4));
+
+// const colors = [{ color: 'red' }, { color: 'green' }, { color: 'blue' }];
+
+// console.log(colors.splice(2, 0, { color: 'purple' }).slice(0, 2));
+
 const divQueue = document.querySelector('.movies__list');
 const btnQueue = document.querySelector('.queue');
 const btnWatched = document.querySelector('.watched');
@@ -32,7 +42,15 @@ function renderMarkupStorage(data) {
     ${title}
     </h2>
     <p class='movie-info'>
-    ${genres.map(genre => genre.name).join(', ')}
+    ${
+      genres.length > 3
+        ? genres
+            .slice(0, 2)
+            .concat([{ name: 'Other' }])
+            .map(genre => genre.name)
+            .join(', ')
+        : genres.map(genre => genre.name).join(', ')
+    }
       | ${release_date.slice(0, 4)}
       <span class='vote'> ${vote_average.toFixed(1)} </span>
     </p>
