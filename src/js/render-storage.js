@@ -4,6 +4,8 @@ const btnWatched = document.querySelector('.watched');
 btnQueue.addEventListener('click', onbtnQueue);
 btnWatched.addEventListener('click', onbtnWatched);
 
+onbtnQueue();
+
 function onbtnQueue() {
   const data = JSON.parse(localStorage.getItem('Queue'));
   divQueue.innerHTML = '';
