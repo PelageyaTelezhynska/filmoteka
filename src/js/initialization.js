@@ -1,14 +1,13 @@
-import { markupTrending } from './render-trending';
-import { fetchTrending } from './fetch-trending';
-import NewsApiService from './fetch-colection';
-import markupColection from './render-colection';
-import { refs } from './refs';
-import Notiflix from 'notiflix';
+// import { renderMarkupTrending } from './render-trending';
+// import { fetchTrending } from './fetch-trending';
+// import NewsApiService from './fetch-colection';
+// import { refs } from './refs';
+// import Notiflix from 'notiflix';
 
 // export function init() {
 //   fetchTrending().then(data => {
 //     // console.log(data.results);
-//     markupTrending(data.results);
+//     renderMarkupTrending(data.results);
 //   });
 // }
 
@@ -23,7 +22,7 @@ import Notiflix from 'notiflix';
 //   newsApiService
 //     .fetchMovies()
 //     .then(data => {
-//       markupColection(data.results);
+//       renderMarkupTrending(data.results);
 //     })
 //     .catch(error => {
 //       clearCard();
@@ -32,5 +31,5 @@ import Notiflix from 'notiflix';
 // }
 
 // function clearCard() {
-//  document.querySelector('.movies__list') = '';
+//   document.querySelector('.movies__list').innerHTML = '';
 // }

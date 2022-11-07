@@ -20,11 +20,14 @@
 
   @include desktop {
     gap: 16px;
+    justify-content: left;
   }
 }
 
 .movie-card {
-  width: 100%;
+  max-width: 100%;
+  scale: 1;
+  transition: scale $transition, box-shadow $transition;
 
   @include tablet {
     width: calc((100% - 32px) / 2);
@@ -32,6 +35,14 @@
 
   @include desktop {
     width: calc((100% - 32px) / 3);
+  }
+
+  &:hover {
+    scale: 1.02;
+    box-shadow: 0 0 7px 2px #a8a6a5;
+    & .info {
+      padding-left: 5px;
+    }
   }
 }
 

@@ -1,0 +1,61 @@
+.themetoggle__container {
+  position: absolute;
+  bottom: 0;
+  right: 20px;
+
+  @media screen and (min-width: 768px) {
+    right: 32px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    right: 34px;
+  }
+}
+
+.themetoggle__btn {
+  background-color: transparent;
+  border-style: none;
+  scale: 1;
+
+  transition: scale $transition, box-shadow $transition;
+
+  &:hover {
+    scale: 1.02;
+    box-shadow: 0 0 7px 2px #a8a6a5;
+  }
+}
+
+.themetoggle__icon-light {
+  fill: $movieInfoColor;
+  transition: fill $transition;
+}
+
+.themetoggle__icon-dark.is-shown ~ .themetoggle__icon-light {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.themetoggle__icon-dark {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition: opacity $transition;
+}
+
+.themetoggle__icon-dark.is-shown {
+  opacity: 1;
+  visibility: visible;
+  cursor: pointer;
+  fill: white;
+}
+
+body.js-dark-theme {
+  background-color: rgba($color: #5c4646, $alpha: 1);
+}
+
+.footer.js-dark-theme {
+  background-color: rgba($color: #302727, $alpha: 1);
+  color: $headerTextColor;
+}
