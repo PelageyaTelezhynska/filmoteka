@@ -1,8 +1,8 @@
 import { renderMarkupTrending } from './render-trending';
 import { fetchTrending } from './fetch-trending';
 import { spinnerOn, spinnerOff } from './spinner';
-
 import { toggleLightTheme } from './day-night-theme';
+
 
 export function parseMeta(data) {
   data.results.map(elem => {
