@@ -1,6 +1,3 @@
-let watchedList = [];
-let queueList = [];
-
 const WATCHED = 'Watched';
 const QUEUE = 'Queue';
 
@@ -14,6 +11,12 @@ export function addToLocale(data) {
   refs.queue.addEventListener('click', addToQueue);
 
   function addToWatched() {
+    let watchedList = JSON.parse(localStorage.getItem(WATCHED)) || [];
+
+    if (watchedList.find(e => e.id === data.id)) {
+      return;
+    }
+
     watchedList.push(data);
 
     localStorage.setItem(WATCHED, JSON.stringify(watchedList));
@@ -22,6 +25,11 @@ export function addToLocale(data) {
   }
 
   function addToQueue() {
+    let queueList = JSON.parse(localStorage.getItem(QUEUE)) || [];
+
+    if (queueList.find(e => e.id === data.id)) {
+      return;
+    }
     queueList.push(data);
 
     localStorage.setItem(QUEUE, JSON.stringify(queueList));
