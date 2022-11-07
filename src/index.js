@@ -1,4 +1,4 @@
-// import { init } from './js/initialization';
+import './js/search-bar';
 import { pageRender } from './js/page-render';
 import { savingGenresArr } from './js/saving-genres-arr';
 import './js/pagination';
@@ -11,4 +11,3 @@ import './js/api-servise';
 
 savingGenresArr();
 pageRender(1);
-// init();
