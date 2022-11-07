@@ -10,8 +10,9 @@ export default class NewsApiService {
   }
 
   async fetchMovies() {
-    if (!this.searchQuery.length)
-      return Promise.reject('Enter data to search.');
+    // if (!this.searchQuery.length)
+    //   return Promise.reject('Enter data to search.');
+
     const response = await axios.get(
       `${BASE_URL}3/search/movie?api_key=${API_KEY}&query=${this.searchQuery}&page=${this.page}`
     );
