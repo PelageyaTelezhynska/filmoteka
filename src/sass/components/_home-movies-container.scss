@@ -27,7 +27,7 @@
 .movie-card {
   max-width: 100%;
   scale: 1;
-  transition: scale $transition;
+  transition: scale $transition, box-shadow $transition;
 
   @include tablet {
     width: calc((100% - 32px) / 2);

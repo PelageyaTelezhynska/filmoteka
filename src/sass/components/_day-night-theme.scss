@@ -14,18 +14,34 @@
 
 .themetoggle__btn {
   background-color: transparent;
+  border-style: none;
+  scale: 1;
+
+  transition: scale $transition, box-shadow $transition;
+
+  &:hover {
+    scale: 1.02;
+    box-shadow: 0 0 7px 2px #a8a6a5;
+  }
 }
 
 .themetoggle__icon-light {
-  fill: yellow;
-  transition: fill 300ms linear;
+  fill: $movieInfoColor;
+  transition: fill $transition;
 }
 
-.themetoggle__icon-dark.is-shown ~ .themetoggle__icon-light,
+.themetoggle__icon-dark.is-shown ~ .themetoggle__icon-light {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 .themetoggle__icon-dark {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+
+  transition: opacity $transition;
 }
 
 .themetoggle__icon-dark.is-shown {
