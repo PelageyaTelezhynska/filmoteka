@@ -53,9 +53,12 @@
 
 body.js-dark-theme {
   background-color: rgba($color: #5c4646, $alpha: 1);
-}
+  & .movie-title {
+    color: #ffffff;
+  }
 
-.footer.js-dark-theme {
-  background-color: rgba($color: #302727, $alpha: 1);
-  color: $headerTextColor;
+  & .footer {
+    background-color: rgba($color: #302727, $alpha: 1);
+    color: $headerTextColor;
+  }
 }
