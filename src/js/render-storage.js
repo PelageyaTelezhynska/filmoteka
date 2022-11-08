@@ -6,14 +6,14 @@ btnWatched.addEventListener('click', onbtnWatched);
 
 onbtnQueue();
 
-function onbtnQueue() {
-  const data = JSON.parse(localStorage.getItem('Queue'));
+function onbtnQueue(e, page = 1) {
+  const data = JSON.parse(localStorage.getItem('Queue')).slice(page*18-18, page*18);
   divQueue.innerHTML = '';
   divQueue.insertAdjacentHTML('beforeend', renderMarkupStorage(data));
 }
 
-function onbtnWatched() {
-  const data = JSON.parse(localStorage.getItem('Watched'));
+function onbtnWatched(e, page = 1) {
+  const data = JSON.parse(localStorage.getItem('Watched')).slice(page*18-18, page*18);;
   divQueue.innerHTML = '';
   divQueue.insertAdjacentHTML('beforeend', renderMarkupStorage(data));
 }
