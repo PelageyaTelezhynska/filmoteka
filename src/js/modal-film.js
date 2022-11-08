@@ -1,7 +1,9 @@
 import { renderMarkupModal } from './render-modal';
 import { fetchModal } from './fetch-modal';
 import { spinnerOn, spinnerOff } from './spinner';
+
 import { refs } from './refs';
+
 
 refs.openModalCard.addEventListener('click', openModal);
 refs.closeModalBtn.addEventListener('click', toggleModal);
@@ -18,9 +20,6 @@ function openModal(evt) {
   fetchModal(currentId)
     .then(data => {
       renderMarkupModal(data);
-      // if (data.original_title.length > 22) {
-      //   document.querySelector('.js-label').classList.add('label-genre');
-      // }
     })
     .finally(() => spinnerOff());
   spinnerOn();
