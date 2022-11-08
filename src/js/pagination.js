@@ -1,5 +1,6 @@
 import Pagination from 'tui-pagination';
 import { pageRender } from './page-render';
+import { toggleLightTheme } from './day-night-theme';
 
 let trendingTotalResults = 20000;
 
@@ -24,6 +25,7 @@ export function addPagination(fetchfoo) {
 
         pagination.on('afterMove', function (eventData) {
           pageRender(eventData.page);
+          toggleLightTheme();
           localStorage.setItem('current_page', pagination.getCurrentPage());
         });
 
@@ -41,6 +43,7 @@ export function addPagination(fetchfoo) {
 
         pagination.on('afterMove', function (eventData) {
           pageRender(eventData.page);
+          toggleLightTheme();
           localStorage.setItem('current_page', pagination.getCurrentPage());
         });
 
