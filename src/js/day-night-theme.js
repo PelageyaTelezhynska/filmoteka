@@ -1,7 +1,6 @@
 export function toggleLightTheme() {
   const themeContainer = document.querySelector('.themetoggle__container');
-  const darkIcon = document.querySelector('.themetoggle__icon-dark');
-  const footerRef = document.querySelector('.footer');
+  const lightIcon = document.querySelector('.themetoggle__icon-light');
 
   themeContainer.addEventListener('click', toggleThemeClick);
 
@@ -10,20 +9,10 @@ export function toggleLightTheme() {
     if (
       e.target.nodeName === 'svg' ||
       e.target.nodeName === 'use' ||
-      e.target.nodeName === 'button'
+      e.target.nodeName === 'BUTTON'
     ) {
-      darkIcon.classList.toggle('is-shown');
-
-      //   console.log(moviesTitleArr);
-      if (darkIcon.classList.contains('is-shown')) {
-        // console.log('dark true');
-        document.body.classList.add('js-dark-theme');
-        footerRef.classList.add('js-dark-theme');
-      } else {
-        // console.log('dark false');
-        document.body.classList.remove('js-dark-theme');
-        footerRef.classList.remove('js-dark-theme');
-      }
+      lightIcon.classList.toggle('is-shown');
+      document.body.classList.toggle('js-dark-theme');
     }
   }
 }
