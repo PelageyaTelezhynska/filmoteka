@@ -1,3 +1,4 @@
+import { myLibPagination } from './js/my-library-pagination';
 import './js/modal-film';
 import './js/day-night-theme';
 
@@ -18,3 +19,5 @@ function onbtnQueueClick () {
     btnQueue.classList.add('btn-is-active');
     btnWatched.classList.remove('btn-is-active');
   }
+
+myLibPagination('Queue');
