@@ -1,12 +1,16 @@
+import markup from './templates/markup-trending.hbs';
+
 const WATCHED = 'Watched';
 const QUEUE = 'Queue';
 
 export function addToLocale(data) {
   const filmObject = JSON.stringify(data);
+  const isLibraryPage = location.pathname.includes('library');
 
   const refs = {
     watched: document.querySelector('.btn-watched'),
     queue: document.querySelector('.btn-queue'),
+    maviesList: document.querySelector('.movies__list'),
   };
 
   refs.watched.addEventListener('click', addToWatched);
@@ -34,6 +38,12 @@ export function addToLocale(data) {
       refs.watched.textContent = 'ADD TO WATCHED';
 
       watchedList = watchedList.filter(e => e.id !== data.id);
+
+      if (isLibraryPage) {
+        refs.maviesList.innerHTML = markup(watchedList);
+        refs.watched.disabled = true;
+        refs.watched.removeEventListener('click', addToWatched);
+      }
     } else {
       refs.watched.classList.add('active-btn');
       refs.watched.textContent = 'REMOVE FROM WATCHED';
@@ -41,8 +51,6 @@ export function addToLocale(data) {
       watchedList.push(data);
     }
     localStorage.setItem(WATCHED, JSON.stringify(watchedList));
-
-    // refs.watched.removeEventListener('click', addToWatched);
   }
 
   function addToQueue() {
@@ -53,6 +61,12 @@ export function addToLocale(data) {
       refs.queue.textContent = 'ADD TO QUEUE';
 
       queueList = queueList.filter(e => e.id !== data.id);
+
+      if (isLibraryPage) {
+        refs.maviesList.innerHTML = markup(queueList);
+        refs.queue.disabled = true;
+        refs.queue.removeEventListener('click', addToQueue);
+      }
     } else {
       refs.queue.classList.add('active-btn');
       refs.queue.textContent = 'REMOVE FROM QUEUE';
@@ -60,7 +74,5 @@ export function addToLocale(data) {
       queueList.push(data);
     }
     localStorage.setItem(QUEUE, JSON.stringify(queueList));
-
-    // refs.queue.removeEventListener('click', addToQueue);
   }
 }

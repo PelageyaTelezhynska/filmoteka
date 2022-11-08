@@ -4,6 +4,8 @@ import { spinnerOn, spinnerOff } from './spinner';
 const BASE_URL = 'https://api.themoviedb.org/3/movie/';
 const API_KEY = 'fa9433e46ed4abfaeb75bcf31f473feb';
 
+import { refs } from './refs';
+
 
 const refs = {
   openModalCard: document.querySelector('[data-modal-open]'),
@@ -29,7 +31,6 @@ function openModal(evt) {
   const currentId = Number(currentFilm.dataset.id);
   fetchModal(currentId)
     .then(data => {
-      // console.dir(data);
       renderMarkupModal(data);
     })
     .finally(() => spinnerOff());
@@ -39,9 +40,9 @@ function openModal(evt) {
 
 function toggleModal() {
   window.addEventListener('keydown', onEscPress);
-  refs.modal.classList.toggle('is-hidden');
+  refs.modalFilm.classList.toggle('is-hidden');
   refs.body.classList.toggle('no-scroll');
-  if (refs.modal.classList.contains('is-hidden')) {
+  if (refs.modalFilm.classList.contains('is-hidden')) {
     window.removeEventListener('keydown', onEscPress);
   }
 }

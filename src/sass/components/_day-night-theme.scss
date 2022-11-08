@@ -25,18 +25,18 @@
   }
 }
 
-.themetoggle__icon-light {
-  fill: $movieInfoColor;
+.themetoggle__icon-dark {
+  fill: #ffffff;
   transition: fill $transition;
 }
 
-.themetoggle__icon-dark.is-shown ~ .themetoggle__icon-light {
+.themetoggle__icon-light.is-shown ~ .themetoggle__icon-dark {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
 }
 
-.themetoggle__icon-dark {
+.themetoggle__icon-light {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -44,18 +44,29 @@
   transition: opacity $transition;
 }
 
-.themetoggle__icon-dark.is-shown {
+.themetoggle__icon-light.is-shown {
   opacity: 1;
   visibility: visible;
   cursor: pointer;
-  fill: white;
+  fill: rgb(244, 159, 30);
 }
 
 body.js-dark-theme {
-  background-color: rgba($color: #5c4646, $alpha: 1);
-}
+  background-color: rgba($color: #251c1c, $alpha: 1);
+  & .movie-title {
+    color: #ffffff;
+  }
 
-.footer.js-dark-theme {
-  background-color: rgba($color: #302727, $alpha: 1);
-  color: $headerTextColor;
+  & .footer {
+    background-color: rgba($color: #403838, $alpha: 1);
+    color: $headerTextColor;
+  }
+
+  & .movie-modal {
+    background-color: #877f7c;
+  }
+
+  & .movie-label {
+    color: #4f4d4c;
+  }
 }

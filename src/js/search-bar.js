@@ -12,6 +12,8 @@ function searchMovie(e) {
   e.preventDefault();
 
   newsApiService.query = refs.inputRef.value.trim();
+  console.log(newsApiService.query);
+
   if (!newsApiService.query) {
     Notiflix.Notify.failure('Enter data to search.');
     pageRender(1);
@@ -28,10 +30,16 @@ function searchMovie(e) {
         clearCard();
         Notiflix.Notify.failure(error);
         pageRender(1);
+      })
+      .finally(() => {
+        clearInput();
       });
   }
 }
 
 function clearCard() {
   document.querySelector('.movies__list').innerHTML = '';
+}
+function clearInput() {
+  document.querySelector('.search__input').value = '';
 }
