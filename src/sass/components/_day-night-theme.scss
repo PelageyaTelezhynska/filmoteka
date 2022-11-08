@@ -25,18 +25,18 @@
   }
 }
 
-.themetoggle__icon-light {
-  fill: $movieInfoColor;
+.themetoggle__icon-dark {
+  fill: #ffffff;
   transition: fill $transition;
 }
 
-.themetoggle__icon-dark.is-shown ~ .themetoggle__icon-light {
+.themetoggle__icon-light.is-shown ~ .themetoggle__icon-dark {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
 }
 
-.themetoggle__icon-dark {
+.themetoggle__icon-light {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -44,11 +44,11 @@
   transition: opacity $transition;
 }
 
-.themetoggle__icon-dark.is-shown {
+.themetoggle__icon-light.is-shown {
   opacity: 1;
   visibility: visible;
   cursor: pointer;
-  fill: white;
+  fill: rgb(244, 159, 30);
 }
 
 body.js-dark-theme {

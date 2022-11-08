@@ -1,6 +1,6 @@
 export function toggleLightTheme() {
   const themeContainer = document.querySelector('.themetoggle__container');
-  const darkIcon = document.querySelector('.themetoggle__icon-dark');
+  const lightIcon = document.querySelector('.themetoggle__icon-light');
   const footerRef = document.querySelector('.footer');
 
   themeContainer.addEventListener('click', toggleThemeClick);
@@ -10,12 +10,11 @@ export function toggleLightTheme() {
     if (
       e.target.nodeName === 'svg' ||
       e.target.nodeName === 'use' ||
-      e.target.nodeName === 'button'
+      e.target.nodeName === 'BUTTON'
     ) {
-      darkIcon.classList.toggle('is-shown');
-
+      lightIcon.classList.toggle('is-shown');
       //   console.log(moviesTitleArr);
-      if (darkIcon.classList.contains('is-shown')) {
+      if (lightIcon.classList.contains('is-shown')) {
         // console.log('dark true');
         document.body.classList.add('js-dark-theme');
         footerRef.classList.add('js-dark-theme');
