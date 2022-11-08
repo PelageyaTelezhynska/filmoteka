@@ -2,23 +2,9 @@ import Pagination from 'tui-pagination';
 import { toggleLightTheme } from './day-night-theme';
 
 const divQueue = document.querySelector('.movies__list');
-const btnQueue = document.querySelector('.queue');
-const btnWatched = document.querySelector('.watched');
-btnQueue.addEventListener('click', onbtnQueue);
-btnWatched.addEventListener('click', onbtnWatched);
-
-function onbtnQueue () {
-    myLibPagination('Queue');
-}
-
-function onbtnWatched () {
-    myLibPagination('Watched');
-}
 
 export function myLibPagination(localStorKey) {
     let queueTotalResults = JSON.parse(localStorage.getItem(localStorKey)).length;
-    console.log(queueTotalResults);
-    if (queueTotalResults <= 18) return;
     const pagination = new Pagination(
         document.getElementById('pagination'),
         {
@@ -29,6 +15,8 @@ export function myLibPagination(localStorKey) {
         }
       );
 
+      if (queueTotalResults <= 18) return pagination.off;
+
       pagination.on('afterMove', function (eventData) {
         myLibRender(eventData.page, localStorKey);
         toggleLightTheme();
@@ -36,7 +24,7 @@ export function myLibPagination(localStorKey) {
       });
 }
 
-function myLibRender (page, localStorKey) {
+export function myLibRender (page, localStorKey) {
     const data = JSON.parse(localStorage.getItem(localStorKey)).slice(page*18-18, page*18);
     divQueue.innerHTML = '';
     divQueue.insertAdjacentHTML('beforeend', renderMarkupStorage(data));
