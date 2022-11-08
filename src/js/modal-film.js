@@ -23,8 +23,10 @@ function openModal(evt) {
   const currentId = Number(currentFilm.dataset.id);
   fetchModal(currentId)
     .then(data => {
-      // console.dir(data);
       renderMarkupModal(data);
+      // if (data.original_title.length > 22) {
+      //   document.querySelector('.js-label').classList.add('label-genre');
+      // }
     })
     .finally(() => spinnerOff());
   spinnerOn();
