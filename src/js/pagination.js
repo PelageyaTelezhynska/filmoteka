@@ -27,6 +27,7 @@ export function addPagination(fetchfoo) {
           pageRender(eventData.page);
           toggleLightTheme();
           localStorage.setItem('current_page', pagination.getCurrentPage());
+
         });
 
         pagination.movePageTo(localStorage.getItem('current_page'));
