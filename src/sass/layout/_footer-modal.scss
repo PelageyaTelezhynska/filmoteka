@@ -1,0 +1,32 @@
+.footer-modal {
+  position: relative;
+  padding: 48px 20px 40px;
+  width: 100%;
+  min-height: 800px;
+
+  background-color: $headerTextColor;
+  @media screen and (min-width: 480px) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 40px 36px;
+    transform: translate(-50%, -50%) scale(1);
+    transform-origin: center;
+    width: 400px;
+    min-height: 580px;
+
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @include tablet {
+    width: 704px;
+    min-height: 470px;
+    padding: 40px 72px 40px 36px;
+  }
+
+  @include desktop {
+    width: 806px;
+    min-height: 560px;
+    padding: 40px 12px;
+  }
+}
