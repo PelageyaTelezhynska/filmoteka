@@ -11,4 +11,5 @@ export const refs = {
   closeModalFooterBtn: document.querySelector('[data-modal-footer-close]'),
   students: document.querySelector('.students'),
   footerBtn: document.querySelector('.footer-btn'),
+  backdropFooter: document.querySelector('.backdrop-footer'),
 };
