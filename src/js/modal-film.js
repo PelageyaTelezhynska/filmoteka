@@ -1,6 +1,8 @@
 import { renderMarkupModal } from './render-modal';
 import { fetchModal } from './fetch-modal';
 import { spinnerOn, spinnerOff } from './spinner';
+import * as basicLightbox from 'basiclightbox';
+import 'basiclightbox/dist/basicLightbox.min.css';
 const BASE_URL = 'https://api.themoviedb.org/3/movie/';
 const API_KEY = 'fa9433e46ed4abfaeb75bcf31f473feb';
 
@@ -240,6 +242,18 @@ function fetchModal(id) {
 //     .then(response => response.json())
 //     .then(data => data)
 //     .catch(error => console.log(error));
+// }
+
+
+
+
+
+// function fetchTrailer(currentId) {
+//   const BASE_URL = 'https://api.themoviedb.org/3/movie/';
+//   const API_KEY = 'fa9433e46ed4abfaeb75bcf31f473feb';
+//   return fetch(`${BASE_URL}${currentId}/videos?api_key=${API_KEY}&language=en-US`)
+//     .then(response => response.json())
+//     .then(data => data.results[0]);
 // }
 
 
