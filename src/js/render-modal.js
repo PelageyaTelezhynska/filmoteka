@@ -2,9 +2,9 @@ import { addToLocale } from './localeStorage-watch&queue';
 
 export function renderMarkupModal(data) {
   const markup = ` <img class='modal-poster'
-   src='https://image.tmdb.org/t/p/w500${data.poster_path}' alt=${
-    data.title
-  } width='240'/>
+   src='https://image.tmdb.org/t/p/w500${data.poster_path}' alt=${data.title}
+    onerror="this.onerror=null;this.src='https://sd.keepcalms.com/i-w600/keep-calm-poster-not-found.jpg';"
+    width='240'/>
   <div>
     <div>
       <h2 class='modal-movie-title'>${data.title}</h2>
@@ -14,7 +14,7 @@ export function renderMarkupModal(data) {
           <p class='movie-label'>Vote / Votes</p>
           <p class='movie-label'>Popularity</p>
           <p class='movie-label'>Original Title</p>
-          <p class='movie-label'>Genre</p>
+          <p class='movie-label js-label'>Genre</p>
         </div>
         <div class='wrap-movie-disc'>
           <p class='movie-disc disc-wrap'>

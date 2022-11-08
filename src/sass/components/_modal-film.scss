@@ -75,6 +75,7 @@
   align-items: center;
   justify-content: center;
   outline: transparent;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
 
   &:hover,
@@ -141,14 +142,20 @@
 .labels-wrap {
   min-width: 70px;
 }
+
 .movie-label {
   font-size: 12px;
   line-height: 16px;
   color: #8c8c8c;
 }
+
 .movie-label:not(:last-child),
 .movie-disc:not(:last-child) {
   margin-bottom: 8px;
+}
+
+.label-genre{
+  margin-top: 22px;
 }
 
 .movie-disc {
@@ -231,6 +238,9 @@
   font-size: 12px;
   line-height: 16px;
   text-transform: uppercase;
+  transition-property: background-color, color, border;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
 
   @include tablet {
@@ -242,7 +252,8 @@
   }
 
   &:hover,
-  &:focus {
+  &:focus,
+  &:active {
     background-color: #ff6b01;
     color: #ffffff;
     border: transparent;

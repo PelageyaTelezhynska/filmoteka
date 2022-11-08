@@ -30,7 +30,7 @@
   transition: scale $transition, box-shadow $transition;
 
   @include tablet {
-    width: calc((100% - 32px) / 2);
+    width: calc((100% - 96px) / 2);
   }
 
   @include desktop {
