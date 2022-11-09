@@ -1,0 +1,40 @@
+{{#each this}}
+
+  <img src='./images/students/frame.png' alt='frame' />
+  <img src='{{photo}}' alt='{{nameEn}}' width='150' />
+  <h3>Name: {{nameEn}}/ {{nameUkr}}</h3>
+  <p>Location: {{location}}</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae,
+    aliquid.</p>
+  <a
+    href='{{githubLink}}'
+    aria-label='GitHub'
+    target='_blank'
+    rel='noreferrer noopener nofollow'
+  >
+    <svg class='icon-soc'>
+      <use href='./images/sprite.svg#icon-github'></use>
+    </svg>
+  </a>
+  <a
+    href='{{telegramLink}}'
+    aria-label='Telegram'
+    target='_blank'
+    rel='noreferrer noopener nofollow'
+  >
+    <svg class='icon-soc'>
+      <use href='./images/sprite.svg#icon-telegram'></use>
+    </svg>
+  </a>
+  <a
+    href='{{linkedInLink}}'
+    aria-label='Linkedin'
+    target='_blank'
+    rel='noreferrer noopener nofollow'
+  >
+    <svg class='icon-soc'>
+      <use href='./images/sprite.svg#icon-linkedin'></use>
+    </svg>
+  </a>
+
+{{/each}}

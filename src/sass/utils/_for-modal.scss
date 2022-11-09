@@ -1,4 +1,5 @@
-.backdrop.is-hidden .movie-modal {
+.backdrop.is-hidden .movie-modal,
+.backdrop-footer.is-hidden .footer-modal {
   transform: translate(-50%, -50%) scale(0);
 }
 
