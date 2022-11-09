@@ -69,4 +69,16 @@ body.js-dark-theme {
   & .movie-label {
     color: #4f4d4c;
   }
+  & .tui-pagination .tui-page-btn {
+    color: #4f4d4c;
+  }
+  & .tui-page-btn {
+    background-color: #877f7c;
+  }
+  & .tui-pagination .tui-is-selected,
+  .tui-pagination strong {
+    background-color: #ff6b08;
+    border-color: #ff6b08;
+    color: #ffffff;
+  }
 }
