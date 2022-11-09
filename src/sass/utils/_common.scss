@@ -19,6 +19,10 @@ body {
   transition: background-color $transition;
 }
 
+main {
+  min-height: 800px;
+}
+
 a {
   text-decoration: none;
 }

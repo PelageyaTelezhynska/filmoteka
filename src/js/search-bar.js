@@ -36,7 +36,7 @@ function searchMovie(e) {
           }
         );
         pagination.on('afterMove', function (eventData) {
-          searchPageRender(eventData.page);          
+          searchPageRender(eventData.page);
         });
       })
       .catch(error => {
@@ -58,9 +58,8 @@ function clearInput() {
 }
 
 function searchPageRender(pageNum) {
-  newsApiService.fetchMovies(pageNum)
-    .then(data => {
-      data = parseMeta(data);
-      renderMarkupTrending(data.results);
-    })
+  newsApiService.fetchMovies(pageNum).then(data => {
+    data = parseMeta(data);
+    renderMarkupTrending(data.results);
+  });
 }

@@ -7,8 +7,10 @@ refs.footerBtn.addEventListener('click', openModalFooter);
 refs.closeModalFooterBtn.addEventListener('click', toggleModalFooter);
 refs.backdropFooter.addEventListener('click', onBackdropClickFooter);
 
-function openModalFooter(evt) {
-  refs.students.innerHTML = markupFooterModal(studentsInfo);
+function openModalFooter(e) {
+  // e.preventDefault();
+  markupFooterModal(studentsInfo);
+
   toggleModalFooter();
 }
 
@@ -21,20 +23,20 @@ function toggleModalFooter() {
   }
 }
 
-function onBackdropClickFooter(evt) {
-  if (evt.currentTarget === evt.target) {
+function onBackdropClickFooter(e) {
+  if (e.currentTarget === e.target) {
     toggleModalFooter();
   }
 }
 
-function onEscPressFooter(evt) {
-  if (evt.key === 'Escape') {
+function onEscPressFooter(e) {
+  if (e.key === 'Escape') {
     toggleModalFooter();
   }
 }
 
-function markupFooterModal(data) {
-  const markup = data.map(item => ``).join('');
-  console.log(markup);
-  refs.students.innerHTML = markup;
-}
+// function markupFooterModal(data) {
+//   const markup = data.map(item => ``).join('');
+//   console.log(markup);
+//   refs.students.innerHTML = markup;
+// }

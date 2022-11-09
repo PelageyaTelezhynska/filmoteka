@@ -1,23 +1,25 @@
-export const studentsRender = [
+import polina from '../images/students/polina.jpg';
+
+export const studentsInfo = [
   {
-    photo: '../images/students/polina',
+    photo: polina,
     nameEn: 'Polina Telezhynska',
     nameUkr: 'Поліна Тележинська',
     githubLink: 'https://github.com/PelageyaTelezhynska',
     telegramLink: 'https://t.me/PelageyaTel',
-    linkedinLink: '',
+    linkedinLink: 'https://www.linkedin.com/login/ukr',
     role: 'Team Lead',
     review:
       'Working on this project was an exciting experience interacting with amazing people. Thanks to everyone for their contributions to this product.',
     location: 'Ukraine, Simferopol',
   },
   {
-    photo: '../images/students/polina',
+    photo: 'images/students/polina.jpg',
     nameEn: 'Jelisiej Makarov',
     nameUkr: 'Єлісей Макаров',
     githubLink: 'https://github.com/Lisius88',
     telegramLink: 'https://t.me/Jelisiej',
-    linkedinLink: '',
+    linkedinLink: 'https://www.linkedin.com/login/ukr',
     role: 'Scrum Master',
     review:
       'Working on this project was an exciting experience interacting with amazing people. Thanks to everyone for their contributions to this product.',
@@ -30,7 +32,7 @@ export const studentsRender = [
     nameUkr: 'Ірина Бабич',
     githubLink: 'https://github.com/JustIrish',
     telegramLink: 'https://t.me/JustIRisha',
-    linkedinLink: '',
+    linkedinLink: 'https://www.linkedin.com/login/ukr',
     role: 'Frontend Developer',
     review:
       'Working on this project was an exciting experience interacting with amazing people. Thanks to everyone for their contributions to this product.',
@@ -42,7 +44,7 @@ export const studentsRender = [
     nameUkr: 'Сергій Рябко',
     githubLink: 'https://github.com/Sergey-Ryabko-84',
     telegramLink: 'https://t.me/Sergey_Ryabko',
-    linkedinLink: '',
+    linkedinLink: 'https://www.linkedin.com/login/ukr',
     role: 'Frontend Developer',
     review:
       'Working on this project was an exciting experience interacting with amazing people. Thanks to everyone for their contributions to this product.',
@@ -55,7 +57,7 @@ export const studentsRender = [
     nameUkr: 'Антоніна Шива',
     githubLink: 'https://github.com/Tonya-Shyva',
     telegramLink: 'https://t.me/An_Shy69',
-    linkedinLink: '',
+    linkedinLink: 'https://www.linkedin.com/login/ukr',
     role: 'Frontend Developer',
     review:
       'Working on this project was an exciting experience interacting with amazing people. Thanks to everyone for their contributions to this product.',
@@ -68,7 +70,7 @@ export const studentsRender = [
     nameUkr: 'Віталій Татарін',
     githubLink: 'https://github.com/Betelgeuse22',
     telegramLink: 'https://t.me/Betelgeuse_22',
-    linkedinLink: '',
+    linkedinLink: 'https://www.linkedin.com/login/ukr',
     role: 'Frontend Developer',
     review:
       'Working on this project was an exciting experience interacting with amazing people. Thanks to everyone for their contributions to this product.',
@@ -81,7 +83,7 @@ export const studentsRender = [
     nameUkr: 'Саміра Есмаіл Пур',
     githubLink: 'https://github.com/Samiraesmailpur',
     telegramLink: 'https://t.me/samiraesmailpur',
-    linkedinLink: '',
+    linkedinLink: 'https://www.linkedin.com/login/ukr',
     role: 'Frontend Developer',
     review:
       'Working on this project was an exciting experience interacting with amazing people. Thanks to everyone for their contributions to this product.',
@@ -94,7 +96,7 @@ export const studentsRender = [
     nameUkr: 'Олександр Бордюжан',
     githubLink: 'https://github.com/Bordiuzhan',
     telegramLink: 'https://t.me/Bordiuzhan',
-    linkedinLink: '',
+    linkedinLink: 'https://www.linkedin.com/login/ukr',
     role: 'Frontend Developer',
     review:
       'Working on this project was an exciting experience interacting with amazing people. Thanks to everyone for their contributions to this product.',
@@ -106,8 +108,8 @@ export const studentsRender = [
     nameEn: 'Oleh Pavlenko',
     nameUkr: 'Олег Павленко',
     githubLink: 'https://github.com/OlehPavlenko146',
-    telegramLink: '',
-    linkedinLink: '',
+    telegramLink: 'https://web.telegram.org/?legacy=1#/login',
+    linkedinLink: 'https://www.linkedin.com/login/ukr',
     role: 'Frontend Developer',
     review:
       'Working on this project was an exciting experience interacting with amazing people. Thanks to everyone for their contributions to this product.',
@@ -120,7 +122,7 @@ export const studentsRender = [
     nameUkr: 'Альона Кілейнікова',
     githubLink: 'https://github.com/AlyonaKileynikova',
     telegramLink: 'https://t.me/Alyona_Kil',
-    linkedinLink: '',
+    linkedinLink: 'https://www.linkedin.com/login/ukr',
     role: 'Frontend Developer',
     review:
       'Working on this project was an exciting experience interacting with amazing people. Thanks to everyone for their contributions to this product.',
@@ -133,7 +135,7 @@ export const studentsRender = [
     nameUkr: 'Христина Батьо',
     githubLink: 'https://github.com/KristinaBatyo',
     telegramLink: 'https://t.me/kristinabatyo',
-    linkedinLink: '',
+    linkedinLink: 'https://www.linkedin.com/login/ukr',
     role: 'Frontend Developer',
     review:
       'Working on this project was an exciting experience interacting with amazing people. Thanks to everyone for their contributions to this product.',

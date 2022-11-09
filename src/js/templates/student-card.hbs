@@ -1,13 +1,13 @@
 {{#each this}}
 
   <img src='./images/students/frame.png' alt='frame' />
-  <img src='{{photo}}' alt='{{nameEn}}' width='150' />
-  <h3>Name: {{nameEn}}/ {{nameUkr}}</h3>
-  <p>Location: {{location}}</p>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae,
-    aliquid.</p>
+  <img src='${data.photo}' alt='${data.nameEn}' width='150' />
+  <h3>Name: ${data.nameEn}/ ${data.nameUkr}</h3>
+  <p>Role: ${data.role}</p>
+  <p>Location: ${data.location}</p>
+
   <a
-    href='{{githubLink}}'
+    href='${data.githubLink}'
     aria-label='GitHub'
     target='_blank'
     rel='noreferrer noopener nofollow'
@@ -17,7 +17,7 @@
     </svg>
   </a>
   <a
-    href='{{telegramLink}}'
+    href='${data.telegramLink}'
     aria-label='Telegram'
     target='_blank'
     rel='noreferrer noopener nofollow'
@@ -27,7 +27,7 @@
     </svg>
   </a>
   <a
-    href='{{linkedInLink}}'
+    href='${linkedInLink}'
     aria-label='Linkedin'
     target='_blank'
     rel='noreferrer noopener nofollow'
