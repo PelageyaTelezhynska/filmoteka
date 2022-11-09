@@ -1,54 +1,32 @@
 import Pagination from 'tui-pagination';
+import { fetchTrending } from './fetch-trending';
 import { pageRender } from './page-render';
 import { toggleLightTheme } from './day-night-theme';
 
-let trendingTotalResults = 20000;
+export function addPagination() {
+  fetchTrending(1).then(data => {
+    const trendingTotalResults = data.total_results;
+    setPagination();
 
-export function addPagination(fetchfoo) {
-  fetchfoo.then(data => {
-    trendingTotalResults = data.total_results;
-    setTotalItems();
+    function setPagination() {
+      let totalResults = trendingTotalResults;
+      if (!totalResults) totalResults = 20000;
 
-    function setTotalItems() {
-      const totalResults = trendingTotalResults;
+      const pagination = new Pagination(document.getElementById('pagination'), {
+        totalItems: totalResults,
+        itemsPerPage: 20,
+        visiblePages: 5,
+        centerAlign: true,
+      });
 
-      if (totalResults) {
-        const pagination = new Pagination(
-          document.getElementById('pagination'),
-          {
-            totalItems: totalResults,
-            itemsPerPage: 20,
-            visiblePages: 5,
-            centerAlign: true,
-          }
-        );
+      pagination.on('afterMove', function (eventData) {
+        pageRender(eventData.page);
+        toggleLightTheme();
+        localStorage.setItem('current_page', pagination.getCurrentPage());
+      });
 
-        pagination.on('afterMove', function (eventData) {
-          pageRender(eventData.page);
-          toggleLightTheme();
-          localStorage.setItem('current_page', pagination.getCurrentPage());
-        });
+      pagination.movePageTo(localStorage.getItem('current_page'));
 
-        pagination.movePageTo(localStorage.getItem('current_page'));
-      } else {
-        const pagination = new Pagination(
-          document.getElementById('pagination'),
-          {
-            totalItems: 20000,
-            itemsPerPage: 20,
-            visiblePages: 5,
-            centerAlign: true,
-          }
-        );
-
-        pagination.on('afterMove', function (eventData) {
-          pageRender(eventData.page);
-          toggleLightTheme();
-          localStorage.setItem('current_page', pagination.getCurrentPage());
-        });
-
-        pagination.movePageTo(localStorage.getItem('current_page'));
-      }
     }
   });
 }
