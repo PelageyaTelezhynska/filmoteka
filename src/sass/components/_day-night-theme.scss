@@ -13,14 +13,14 @@
 }
 
 .themetoggle__btn {
+  width: 40px;
+  height: 40px;
   background-color: transparent;
   border-style: none;
-  scale: 1;
-
-  transition: scale $transition, box-shadow $transition;
+  cursor: pointer;
+  transition: box-shadow $transition;
 
   &:hover {
-    scale: 1.02;
     box-shadow: 0 0 7px 2px #a8a6a5;
   }
 }
@@ -68,5 +68,9 @@ body.js-dark-theme {
 
   & .movie-label {
     color: #4f4d4c;
+  }
+
+  & .to-top:hover {
+    box-shadow: 0 7px 2px #a8a6a5;
   }
 }
