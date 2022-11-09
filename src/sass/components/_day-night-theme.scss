@@ -70,7 +70,22 @@ body.js-dark-theme {
     color: #4f4d4c;
   }
 
+  & .tui-pagination .tui-page-btn {
+    color: #4f4d4c;
+  }
+  & .tui-page-btn {
+    background-color: #877f7c;
+  }
+  & .tui-pagination .tui-is-selected,
+  .tui-pagination strong {
+    background-color: #ff6b08;
+    border-color: #ff6b08;
+    color: #ffffff;
+    }
+
+
   & .to-top:hover {
     box-shadow: 0 7px 2px #a8a6a5;
+
   }
 }
