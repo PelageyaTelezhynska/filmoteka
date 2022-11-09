@@ -5,13 +5,13 @@ import { refs } from './refs';
 import Notiflix from 'notiflix';
 import { pageRender, parseMeta } from './page-render';
 import Pagination from 'tui-pagination';
+import { toggleLightTheme } from './day-night-theme';
 
 const newsApiService = new NewsApiService();
 refs.formRef.addEventListener('submit', searchMovie);
 
 function searchMovie(e) {
   e.preventDefault();
-
   newsApiService.query = refs.inputRef.value.trim();
   // console.log(newsApiService.query);
 
@@ -36,11 +36,13 @@ function searchMovie(e) {
           }
         );
         pagination.on('afterMove', function (eventData) {
-          searchPageRender(eventData.page);          
+          toggleLightTheme();
+          searchPageRender(eventData.page);
         });
       })
       .catch(error => {
         clearCard();
+        toggleLightTheme();
         Notiflix.Notify.failure(error);
         pageRender(1);
       })
@@ -58,9 +60,9 @@ function clearInput() {
 }
 
 function searchPageRender(pageNum) {
-  newsApiService.fetchMovies(pageNum)
-    .then(data => {
-      data = parseMeta(data);
-      renderMarkupTrending(data.results);
-    })
+  newsApiService.fetchMovies(pageNum).then(data => {
+    data = parseMeta(data);
+    renderMarkupTrending(data.results);
+    toggleLightTheme();
+  });
 }
