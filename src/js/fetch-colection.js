@@ -15,7 +15,7 @@ export default class NewsApiService {
     this._page = pageNum;
 
     const response = await axios.get(
-      `${BASE_URL}3/search/movie?api_key=${API_KEY}&query=${this.searchQuery}&page=${this.page}`
+      `${BASE_URL}3/search/movie?api_key=${API_KEY}&query=${this.searchQuery}&page=${this._page}`
     );
     if (!response.data.results.length)
       return Promise.reject(
