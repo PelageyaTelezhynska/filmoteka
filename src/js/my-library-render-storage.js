@@ -4,6 +4,7 @@ import { toggleLightTheme } from './day-night-theme';
 const divQueue = document.querySelector('.movies__list');
 
 export function myLibPagination(localStorKey) {
+    if (!JSON.parse(localStorage.getItem(localStorKey))) return;
     let queueTotalResults = JSON.parse(localStorage.getItem(localStorKey)).length;
     const pagination = new Pagination(
         document.getElementById('pagination'),

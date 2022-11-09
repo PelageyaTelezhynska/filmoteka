@@ -1,6 +1,6 @@
-// don't forget to hook up this script to index.html
+// // don't forget to hook up this script to index.html
 
-import throttle from 'lodash.throttle';
+const throttle = require('lodash.throttle');
 const btnToTop = document.querySelector('.to-top');
 btnToTop.classList.add('visually-hidden');
 
