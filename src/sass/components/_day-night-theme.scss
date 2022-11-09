@@ -69,4 +69,8 @@ body.js-dark-theme {
   & .movie-label {
     color: #4f4d4c;
   }
+
+  & .to-top:hover {
+    box-shadow: 0 7px 2px #a8a6a5;
+  }
 }
