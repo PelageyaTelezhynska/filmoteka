@@ -26,8 +26,6 @@
 
 .movie-card {
   max-width: 100%;
-  scale: 1;
-  transition: scale $transition, box-shadow $transition;
 
   @include tablet {
     width: calc((100% - 96px) / 2);
@@ -36,19 +34,13 @@
   @include desktop {
     width: calc((100% - 32px) / 3);
   }
-
-  &:hover {
-    scale: 1.02;
-    box-shadow: 0 0 7px 2px #a8a6a5;
-    & .info {
-      padding-left: 5px;
-    }
-  }
 }
 
 .movie-poster {
   height: 402px;
   width: 100%;
+  scale: 1;
+  transition: scale $transition, box-shadow $transition;
 
   @include tablet {
     height: 455px;
@@ -56,6 +48,11 @@
 
   @include desktop {
     height: 574px;
+  }
+
+  &:hover {
+    scale: 1.02;
+    box-shadow: 0 0 7px 2px #a8a6a5;
   }
 }
 

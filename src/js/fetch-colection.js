@@ -6,15 +6,16 @@ const BASE_URL = 'https://api.themoviedb.org/';
 export default class NewsApiService {
   constructor() {
     this.searchQuery = '';
-    this.page = 1;
+    this._page = 1;
   }
 
-  async fetchMovies() {
+  async fetchMovies(pageNum) {
     // if (!this.searchQuery.length)
     //   return Promise.reject('Enter data to search.');
+    this._page = pageNum;
 
     const response = await axios.get(
-      `${BASE_URL}3/search/movie?api_key=${API_KEY}&query=${this.searchQuery}&page=${this.page}`
+      `${BASE_URL}3/search/movie?api_key=${API_KEY}&query=${this.searchQuery}&page=${this._page}`
     );
     if (!response.data.results.length)
       return Promise.reject(
@@ -29,5 +30,12 @@ export default class NewsApiService {
   }
   set query(newQuery) {
     this.searchQuery = newQuery;
+  }
+
+  get page() {
+    return this._page;
+  }
+  set page(newPage) {
+    this._page = newPage;
   }
 }

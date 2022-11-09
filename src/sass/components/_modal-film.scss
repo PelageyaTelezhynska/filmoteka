@@ -65,6 +65,7 @@
   font-size: 20px;
   line-height: 23px;
   text-transform: uppercase;
+  margin-bottom: 20px;
 
   @include desktop {
     font-size: 30px;
@@ -74,35 +75,24 @@
 
 .wrap-flex {
   display: flex;
-  align-items: flex-start;
-  margin-top: 20px;
+  align-items: baseline;
 }
 
-.wrap-movie-disc {
-  margin-left: 40px;
-
-  @include desktop {
-    margin-left: 70px;
-  }
-}
-
-.labels-wrap {
-  min-width: 70px;
+.wrap-flex + .wrap-flex {
+  margin-top: 8px;
 }
 
 .movie-label {
   font-size: 12px;
   line-height: 16px;
   color: #8c8c8c;
-}
 
-.movie-label:not(:last-child),
-.movie-disc:not(:last-child) {
-  margin-bottom: 8px;
-}
+  min-width: 70px;
+  margin-right: 40px;
 
-.label-genre {
-  margin-top: 22px;
+  @include desktop {
+    margin-right: 70px;
+  }
 }
 
 .movie-disc {
@@ -129,6 +119,8 @@
 
 .disc-space {
   margin: 0 3px;
+  line-height: 16px;
+  color: #8c8c8c;
 }
 
 .movie-disc-title {

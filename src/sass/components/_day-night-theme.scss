@@ -13,14 +13,14 @@
 }
 
 .themetoggle__btn {
+  width: 40px;
+  height: 40px;
   background-color: transparent;
   border-style: none;
-  scale: 1;
-
-  transition: scale $transition, box-shadow $transition;
+  cursor: pointer;
+  transition: box-shadow $transition;
 
   &:hover {
-    scale: 1.02;
     box-shadow: 0 0 7px 2px #a8a6a5;
   }
 }
@@ -52,13 +52,40 @@
 }
 
 body.js-dark-theme {
-  background-color: rgba($color: #5c4646, $alpha: 1);
+  background-color: rgba($color: #251c1c, $alpha: 1);
   & .movie-title {
     color: #ffffff;
   }
 
   & .footer {
-    background-color: rgba($color: #302727, $alpha: 1);
+    background-color: rgba($color: #403838, $alpha: 1);
     color: $headerTextColor;
+  }
+
+  & .movie-modal {
+    background-color: #877f7c;
+  }
+
+  & .movie-label {
+    color: #4f4d4c;
+  }
+
+  & .tui-pagination .tui-page-btn {
+    color: #4f4d4c;
+  }
+  & .tui-page-btn {
+    background-color: #877f7c;
+  }
+  & .tui-pagination .tui-is-selected,
+  .tui-pagination strong {
+    background-color: #ff6b08;
+    border-color: #ff6b08;
+    color: #ffffff;
+    }
+
+
+  & .to-top:hover {
+    box-shadow: 0 7px 2px #a8a6a5;
+
   }
 }
