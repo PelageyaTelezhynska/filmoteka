@@ -4,5 +4,6 @@ import './js/fetch-modal';
 import './js/modal-film';
 import './js/fetch-trailer';
 import './js/api-servise';
+import './js/modal-trailer';
 
 // import './js/render-storage';
