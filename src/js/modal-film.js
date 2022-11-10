@@ -4,7 +4,6 @@ import { spinnerOn, spinnerOff } from './spinner';
 
 import { refs } from './refs';
 
-
 refs.openModalCard.addEventListener('click', openModal);
 refs.closeModalBtn.addEventListener('click', toggleModal);
 refs.backdrop.addEventListener('click', onBackdropClick);
