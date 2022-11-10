@@ -1,0 +1,6 @@
+<select class="genre-select" name="genre" id="genre">
+    <option class="genre-select-option" value="0">Select genre</option>
+  {{#each this}}
+    <option class="genre-select-option" value="{{id}}">{{name}}</option>
+  {{/each}}
+</select>

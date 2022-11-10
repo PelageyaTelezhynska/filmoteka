@@ -5,7 +5,11 @@ import { refs } from './refs';
 import Notiflix from 'notiflix';
 import { pageRender, parseMeta } from './page-render';
 import Pagination from 'tui-pagination';
+
+import {addPagination} from './pagination'
+
 import { toggleLightTheme } from './day-night-theme';
+
 
 const newsApiService = new NewsApiService();
 refs.formRef.addEventListener('submit', searchMovie);
@@ -45,6 +49,7 @@ function searchMovie(e) {
         toggleLightTheme();
         Notiflix.Notify.failure(error);
         pageRender(1);
+        addPagination();
       })
       .finally(() => {
         clearInput();
