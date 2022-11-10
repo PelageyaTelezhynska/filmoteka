@@ -1,5 +1,5 @@
 import { refs } from './refs';
-import frame from '../images/students/frame.png';
+import frame from 'images/students/frame.png';
 
 export function markupFooterModal(data) {
   const markup = data

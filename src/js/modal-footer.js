@@ -1,7 +1,7 @@
 import { refs } from './refs';
 import { studentsInfo } from './students-info';
-import markup from './templates/student-card.hbs';
-import { markupFooterModal } from './markup-footer-modal';
+// import markup from './templates/student-card.hbs';
+// import { markupFooterModal } from './markup-footer-modal';
 
 refs.footerBtn.addEventListener('click', openModalFooter);
 refs.closeModalFooterBtn.addEventListener('click', toggleModalFooter);
@@ -9,7 +9,9 @@ refs.backdropFooter.addEventListener('click', onBackdropClickFooter);
 
 function openModalFooter(e) {
   // e.preventDefault();
-  markupFooterModal(studentsInfo);
+  // markupFooterModal(studentsInfo);
+  // const render = markup(studentsInfo);
+  // refs.students.innerHTML = render;
 
   toggleModalFooter();
 }

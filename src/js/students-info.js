@@ -14,7 +14,7 @@ export const studentsInfo = [
     location: 'Ukraine, Simferopol',
   },
   {
-    photo: 'images/students/polina.jpg',
+    photo: '../images/students/polina.jpg',
     nameEn: 'Jelisiej Makarov',
     nameUkr: 'Єлісей Макаров',
     githubLink: 'https://github.com/Lisius88',
@@ -27,7 +27,7 @@ export const studentsInfo = [
   },
 
   {
-    photo: '../images/students/polina',
+    photo: '../images/students/polina.jpg',
     nameEn: 'Iryna',
     nameUkr: 'Ірина Бабич',
     githubLink: 'https://github.com/JustIrish',
