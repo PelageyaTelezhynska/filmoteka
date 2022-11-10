@@ -39,7 +39,7 @@ export function pageRender(pageNum) {
   spinnerOn();
 }
 
-function configMarkupData(data) {
+export function configMarkupData(data) {
   const genresArr = JSON.parse(localStorage.getItem('genres'));
   data.map((elem, idx) => {
     const genresName = [];
