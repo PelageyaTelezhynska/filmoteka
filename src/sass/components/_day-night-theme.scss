@@ -48,26 +48,50 @@
   opacity: 1;
   visibility: visible;
   cursor: pointer;
-  fill: rgb(244, 159, 30);
+  fill: #ffffff;
 }
 
 body.js-dark-theme {
-  background-color: rgba($color: #251c1c, $alpha: 1);
-  & .movie-title {
+  background-color: rgba($color: #0e171a, $alpha: 1);
+  & .movie-title,
+  .modal-movie-title,
+  .movie-disc,
+  .disc-title,
+  .disc-text {
     color: #ffffff;
   }
 
+  & .btn-close {
+    fill: #ffffff;
+    &:hover,
+    &:focus {
+      fill: #ff6b01;
+    }
+  }
+
   & .footer {
-    background-color: rgba($color: #403838, $alpha: 1);
+    background-color: rgba($color: #182025, $alpha: 1);
     color: $headerTextColor;
   }
 
   & .movie-modal {
-    background-color: #877f7c;
+    background-color: #182025;
   }
 
-  & .movie-label {
-    color: #4f4d4c;
+  & .movie-label,
+  .disc-space {
+    color: #a5a19f;
+  }
+
+  & .modal-btn {
+    border: 1px solid #ffffff;
+    color: #ffffff;
+
+    &:hover,
+    &:focus,
+    &:active {
+      border: transparent;
+    }
   }
 
   & .tui-pagination .tui-page-btn {
@@ -81,11 +105,9 @@ body.js-dark-theme {
     background-color: #ff6b08;
     border-color: #ff6b08;
     color: #ffffff;
-    }
-
+  }
 
   & .to-top:hover {
     box-shadow: 0 7px 2px #a8a6a5;
-
   }
 }
