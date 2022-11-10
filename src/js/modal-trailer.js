@@ -36,9 +36,8 @@ trailerBtn.addEventListener('click', onTrailerClick);
 //     const instance = basicLightbox.create(markup);
 //     instance.show();
 //   }
-
-
-async function fetchTrailer() {
+//щоб вікривався трейлер модалки фільму потрібно взяти id фільму з модалки фільму і передати в функцію fetchTrailer як аргумент currentId
+export async function fetchTrailer(id) {
     const currentFilm = document.querySelector('.js-item');
     const currentId = Number(currentFilm.dataset.id);
     const response = await fetch(`${BASE_URL}${currentId}/videos?api_key=${API_KEY}&language=en-US`);

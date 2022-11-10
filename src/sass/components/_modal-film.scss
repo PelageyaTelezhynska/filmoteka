@@ -163,16 +163,36 @@
   }
 }
 .modal__button-play {
+  display: flex;
   border-color: transparent;
   background: transparent;
-  margin-left: 83px;
-  margin-top: 20px;
+  margin: 20px auto;
 }
 
 .modal__button-play:hover {
   box-shadow: 10px 5px 5px gray;
 }
 
+.trailer__iframe {
+  width: 90%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+
+  @media screen and (min-width: 480px) {
+    width: 700px;
+    height: 470px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 815px;
+    height: 550px;
+  }
+}
+
+.trailer__backdrop {
+  z-index: 10;
+}
 
 .modal-btn {
   display: inline-block;
