@@ -1,4 +1,4 @@
-// don't forget to hook up this script to index.html
+// // don't forget to hook up this script to index.html
 
 const throttle = require('lodash.throttle');
 const btnToTop = document.querySelector('.to-top');
