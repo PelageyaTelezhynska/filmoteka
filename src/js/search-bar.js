@@ -1,15 +1,14 @@
 import { renderMarkupTrending } from './render-trending';
-import { fetchTrending } from './fetch-trending';
 import NewsApiService from './fetch-colection';
 import { refs } from './refs';
 import Notiflix from 'notiflix';
 import { pageRender, parseMeta } from './page-render';
 import Pagination from 'tui-pagination';
 
-import {addPagination} from './pagination'
+import { addPagination } from './pagination';
 
 import { toggleLightTheme } from './day-night-theme';
-
+import { unobserve } from './genre-filter'
 
 const newsApiService = new NewsApiService();
 refs.formRef.addEventListener('submit', searchMovie);
@@ -17,11 +16,12 @@ refs.formRef.addEventListener('submit', searchMovie);
 function searchMovie(e) {
   e.preventDefault();
   newsApiService.query = refs.inputRef.value.trim();
-  // console.log(newsApiService.query);
 
   if (!newsApiService.query) {
     Notiflix.Notify.failure('Enter data to search.');
     pageRender(1);
+    unobserve();
+    document.querySelector('.genre-select').classList.remove('visually-hidden');
     return;
   } else {
     newsApiService
@@ -43,6 +43,8 @@ function searchMovie(e) {
           toggleLightTheme();
           searchPageRender(eventData.page);
         });
+        unobserve();
+        document.querySelector('.genre-select').classList.add('visually-hidden');
       })
       .catch(error => {
         clearCard();
@@ -50,6 +52,8 @@ function searchMovie(e) {
         Notiflix.Notify.failure(error);
         pageRender(1);
         addPagination();
+        unobserve();
+        document.querySelector('.genre-select').classList.remove('visually-hidden');
       })
       .finally(() => {
         clearInput();

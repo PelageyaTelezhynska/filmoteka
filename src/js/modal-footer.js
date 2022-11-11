@@ -1,10 +1,18 @@
 import { refs } from './refs';
+import { studentsInfo } from './students-info';
+// import markup from './templates/student-card.hbs';
+// import { markupFooterModal } from './markup-footer-modal';
 
 refs.footerBtn.addEventListener('click', openModalFooter);
 refs.closeModalFooterBtn.addEventListener('click', toggleModalFooter);
 refs.backdropFooter.addEventListener('click', onBackdropClickFooter);
 
-function openModalFooter(evt) {
+function openModalFooter(e) {
+  // e.preventDefault();
+  // markupFooterModal(studentsInfo);
+  // const render = markup(studentsInfo);
+  // refs.students.innerHTML = render;
+
   toggleModalFooter();
 }
 
@@ -17,14 +25,20 @@ function toggleModalFooter() {
   }
 }
 
-function onBackdropClickFooter(evt) {
-  if (evt.currentTarget === evt.target) {
+function onBackdropClickFooter(e) {
+  if (e.currentTarget === e.target) {
     toggleModalFooter();
   }
 }
 
-function onEscPressFooter(evt) {
-  if (evt.key === 'Escape') {
+function onEscPressFooter(e) {
+  if (e.key === 'Escape') {
     toggleModalFooter();
   }
 }
+
+// function markupFooterModal(data) {
+//   const markup = data.map(item => ``).join('');
+//   console.log(markup);
+//   refs.students.innerHTML = markup;
+// }
