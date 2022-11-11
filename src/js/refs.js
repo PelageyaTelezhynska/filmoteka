@@ -13,4 +13,5 @@ export const refs = {
   footerBtn: document.querySelector('.footer-btn'),
   backdropFooter: document.querySelector('.backdrop-footer'),
   slider: document.querySelector('.splide__list'),
+  trailerBtn: document.querySelector('.trailer-btn'),
 };
