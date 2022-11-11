@@ -13,14 +13,23 @@
     />
     <link rel="stylesheet" href="./sass/index.scss" />
     <link rel="stylesheet" href="../node_modules/spin.js/spin.css" />
+    <link
+      rel="stylesheet"
+      href="../node_modules/@splidejs/splide/dist/css/splide.min.css"
+    />
   </head>
   <body>
     <include src="./partials/header_lib.html"></include>
 
+    <div class="container">
+      <h2 class="movie-title">Trending today:</h2>
+    </div>
+    
     <include src="./partials/main-home.html"></include>
     <include src="./partials/footer.html"></include>
 
     <script src="./init-my-library.js" type="module"></script>
     <script src="./js/btn-up.js" type="module"></script>
+    <script src="./js/slider.js" type="module"></script>
   </body>
 </html>

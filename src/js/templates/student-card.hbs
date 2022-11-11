@@ -1,0 +1,127 @@
+{{#each this}}
+
+  <img src='images/students/frame.png' alt='frame' />
+  <img src='{{photo}}' alt='{{nameEn}}' width='250' />
+  <h3>Name: {{nameEn}}/ {{nameUkr}}</h3>
+  <p>Role: {{role}}</p>
+  <p>Location: {{location}}</p>
+
+  <a
+    href='{{githubLink}}'
+    aria-label='GitHub'
+    target='_blank'
+    rel='noreferrer noopener nofollow'
+  >
+    <svg class='icon-soc'>
+      <use href='./images/sprite.svg#icon-github'></use>
+    </svg>
+  </a>
+  <a
+    href='{{telegramLink}}'
+    aria-label='Telegram'
+    target='_blank'
+    rel='noreferrer noopener nofollow'
+  >
+    <svg class='icon-soc'>
+      <use href='./images/sprite.svg#icon-telegram'></use>
+    </svg>
+  </a>
+  <a
+    href='{{linkedInLink}}'
+    aria-label='Linkedin'
+    target='_blank'
+    rel='noreferrer noopener nofollow'
+  >
+    <svg class='icon-soc'>
+      <use href='./images/sprite.svg#icon-linkedin'></use>
+    </svg>
+  </a>
+
+{{/each}}
+
+<li class='member-item'>
+  <div class='thumb'>
+    <img class='image-frame' src='images/students/frame-mob.png' alt='frame' />
+    <picture class='photo'>
+      <source
+        srcset='
+                ./images/students/polina-desk.jpg   1x,
+                ./images/students/polina-desk2x.jpg 2x
+              '
+        media='(min-width: 1280px)'
+        type='image/jpg'
+      />
+      <source
+        srcset='
+                ./images/students/polina-tab.jpg    1x,
+                ./images/students/polina-desk2x.jpg 2x
+              '
+        media='(min-width: 768px)'
+        type='image/jpg'
+      />
+      <source
+        srcset='
+              ./images/students/polina-mob.jpg    1x,
+                ./images/students/polina-mob2x.jpg 2x
+              '
+        media='(min-width: 480px)'
+        type='image/jpg'
+      />
+      <source
+        srcset='
+                ./images/students/polina.jpg    1x,
+                ./images/students/polina2x.jpg 2x
+              '
+        media='(min-width: 320px)'
+        type='image/jpg'
+      />
+      <img class='photo' src='./images/students/polina-desk.jpg' alt='Polina' />
+    </picture>
+  </div>
+  <div class='card'>
+    <h3 class='member-name'>Name: Polina Telezhynska</h3>
+    <p class='member-role'>Role: Team Lead</p>
+    <p class='member-location'>Location: Ukraine, Simferopol</p>
+    <ul class='social-list'>
+      <li class='social-item'>
+        <a
+          class='social-link'
+          href='https://github.com/PelageyaTelezhynska'
+          aria-label='GitHub'
+          target='_blank'
+          rel='noreferrer noopener nofollow'
+        >
+          <svg class='icon-soc'>
+            <use href='./images/sprite.svg#icon-github'></use>
+          </svg>
+        </a>
+      </li>
+      <li class='social-item'>
+        <a
+          class='social-link'
+          href='https://t.me/PelageyaTel'
+          aria-label='Telegram'
+          target='_blank'
+          rel='noreferrer noopener nofollow'
+        >
+          <svg class='icon-soc'>
+            <use href='./images/sprite.svg#icon-telegram'></use>
+          </svg>
+        </a>
+      </li>
+      <li class='social-item'>
+        <a
+          class='social-link'
+          href=' '
+          aria-label='Linkedin'
+          target='_blank'
+          rel='noreferrer noopener nofollow'
+        >
+          <svg class='icon-soc'>
+            <use href='./images/sprite.svg#icon-linkedin'></use>
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </div>
+</li>

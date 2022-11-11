@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_KEY = '778514cd0c35430bd38f659c52db3e68';
+const API_KEY = 'a4b64e934bd6b381798223a1d6191ff5';
 const BASE_URL = 'https://api.themoviedb.org/';
 
 export default class NewsApiService {

@@ -4,10 +4,11 @@ import { refs } from './refs';
 import Notiflix from 'notiflix';
 import { pageRender, parseMeta } from './page-render';
 import Pagination from 'tui-pagination';
-import {addPagination} from './pagination'
+
+import { addPagination } from './pagination';
+
 import { toggleLightTheme } from './day-night-theme';
 import { unobserve } from './genre-filter'
-
 
 const newsApiService = new NewsApiService();
 refs.formRef.addEventListener('submit', searchMovie);
