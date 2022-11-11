@@ -2,7 +2,9 @@
     position: relative;
     padding: 30px 10px 30px;
     width: 100%;
-    min-height: 200px;
+    min-height: 350px;
+    top: 5px;
+    left: 5px;
 
     
 
@@ -21,35 +23,37 @@
       transform: translate(-50%, -50%) scale(1);
       transform-origin: center;
       width: 400px;
-      height: 300px;
+      min-height: 300px;
   
       transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
     }
   
     @include tablet {
       width: 400px;
-      height: 300px;
-      padding: 40px 72px 40px 36px;
+      height: 350px;
+      padding: 20px;
     }
   
     @include desktop {
-      width: 600px;
-      height: 500px;
-      padding: 40px 12px;
+      width: 500px;
+      height: 350px;
+      padding: 15px 15px;
     }
 }
 
 .modal-auth {
-    position: absolute;
+    position: fixed;
+    width: 80%;
+    height: 80%;
     // background-color: #ffffff;
-    // top: 20%;
-    // left: 15%;
+    // top: 0;
+    // left: 0;
+    // margin: 20px;
     @include desktop {
-        width: 600px;
-        height: 500px;
-        padding: 40px 12px;
-        top: 15%;
-        left: 10%;
+        width: 90%;
+        height: 100%;
+        // padding: 15px 15px;
+        top: 10%;
       }
     
 
@@ -66,9 +70,9 @@
     margin: 10px 0;
     padding: 8px 2px;
     border-width: 0 0 2px 0;
-    width: 130%;
+    width: 100%;
     @include desktop {
-        width: 60%;
+        width: 100%;
       }
 }
 
@@ -80,9 +84,9 @@
 //     z-index: 1;
 // }
 
-.auth.open{
-    display: block;
-}
+// .auth.open{
+//     display: block;
+// }
 
 // .modal-auth{
 //     display: none;
@@ -111,4 +115,12 @@
 
 .no-scroll {
     overflow: hidden;
+}
+
+.error {
+    margin-top: 15px;
+}
+
+.auth.error {
+    min-height: 400px;
 }
