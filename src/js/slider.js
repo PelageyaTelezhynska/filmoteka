@@ -4,9 +4,25 @@ import Splide from '@splidejs/splide';
 
 const splide = new Splide('.splide', {
   type: 'loop',
-  padding: '5rem',
+  padding: '6rem',
   perPage: 6,
   autoplay: true,
+  breakpoints: {
+    1280: {
+      perPage: 3,
+    },
+    768: {
+      perPage: 2,
+      padding: '3rem',
+    },
+    480: {
+      perPage: 1,
+      padding: '5rem',
+    },
+    370: {
+      padding: '3rem',
+    },
+  },
 });
 
 function renderSlider() {
@@ -35,18 +51,17 @@ function renderSlider() {
 
 renderSlider();
 
-
 function createMarkup(arr) {
   return arr
     .map(
-      items => `<li class="splide__slide js-item" data-id='${items.id}>
-    <img src="https://image.tmdb.org/t/p/w500${items.poster_path}"
-    alt="${items.title}"
-    height="228" 
-    width="152"
-    >
-    </img>
-    </li>`
+      item => `<li class="splide__slide js-item" data-id='${item.id}'>
+  <img src="https://image.tmdb.org/t/p/w500${item.poster_path}" 
+  alt="${item.title}"
+  onerror="this.onerror=null;this.src='./images/keep-calm-poster-not-found.webp';" 
+  height="228"
+  width="152">
+
+</li>`
     )
     .join('');
 }
