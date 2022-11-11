@@ -3,38 +3,39 @@ import { toggleLightTheme } from './day-night-theme';
 
 const divQueue = document.querySelector('.movies__list');
 
+toggleLightTheme();
+
 export function myLibPagination(localStorKey) {
-    if (!JSON.parse(localStorage.getItem(localStorKey))) return;
-    let queueTotalResults = JSON.parse(localStorage.getItem(localStorKey)).length;
-    const pagination = new Pagination(
-        document.getElementById('pagination'),
-        {
-          totalItems: queueTotalResults,
-          itemsPerPage: 18,
-          visiblePages: 5,
-          centerAlign: true,
-        }
-      );
+  if (!JSON.parse(localStorage.getItem(localStorKey))) return;
+  let queueTotalResults = JSON.parse(localStorage.getItem(localStorKey)).length;
+  const pagination = new Pagination(document.getElementById('pagination'), {
+    totalItems: queueTotalResults,
+    itemsPerPage: 18,
+    visiblePages: 5,
+    centerAlign: true,
+  });
 
-      if (queueTotalResults <= 18) return pagination.off;
+  if (queueTotalResults <= 18) return pagination.off;
 
-      pagination.on('afterMove', function (eventData) {
-        myLibRender(eventData.page, localStorKey);
-        toggleLightTheme();
-        localStorage.setItem('current_page', pagination.getCurrentPage());
-      });
+  pagination.on('afterMove', function (eventData) {
+    myLibRender(eventData.page, localStorKey);
+    localStorage.setItem('current_page', pagination.getCurrentPage());
+  });
 }
 
-export function myLibRender (page, localStorKey) {
-    const data = JSON.parse(localStorage.getItem(localStorKey)).slice(page*18-18, page*18);
-    divQueue.innerHTML = '';
-    divQueue.insertAdjacentHTML('beforeend', renderMarkupStorage(data));
+export function myLibRender(page, localStorKey) {
+  const data = JSON.parse(localStorage.getItem(localStorKey)).slice(
+    page * 18 - 18,
+    page * 18
+  );
+  divQueue.innerHTML = '';
+  divQueue.insertAdjacentHTML('beforeend', renderMarkupStorage(data));
 }
 
 function renderMarkupStorage(data) {
-    return data
-      .map(({ id, poster_path, title, genres, release_date, vote_average }) => {
-        return `<div class='movie-card js-item' data-id='${id}'>
+  return data
+    .map(({ id, poster_path, title, genres, release_date, vote_average }) => {
+      return `<div class='movie-card js-item' data-id='${id}'>
     <img
       class='movie-poster'
       src='https://image.tmdb.org/t/p/w500${poster_path}'
@@ -61,6 +62,6 @@ function renderMarkupStorage(data) {
       </p>
     </div>
   </div>`;
-      })
-      .join('');
-  }
+    })
+    .join('');
+}

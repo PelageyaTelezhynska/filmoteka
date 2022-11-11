@@ -16,11 +16,20 @@
             >Home</a
           >
         </li>
-        <li class="header__sidenav__item">
+        <li class="header__sidenav__item js-nav-lib-page">
           <!--!!!!!!!!!!!!!!!! замість # зробити посилання на library.html -->
           <a href="./my-library.html" class="header__sidenav__link library"
             >My library</a
           >
+        </li>
+        <li class="header__sidenav__item">
+          <button
+            type="button"
+            class="btn-auth header__sidenav__link"
+            data-open-modal
+          >
+            Sign In
+          </button>
         </li>
       </ul>
     </nav>
@@ -39,14 +48,18 @@
       <p class="js-search-results"></p>
     </div> -->
     <!-------------- Genre-selection-form ------------------->
-    <form class="genre-select__form"></form>
+    <form class="genre-select__form">
+      <select class="genre-select" name="genre" id="genre">
+        <option class="genre-select-option" value="0">Select genre</option>
+      </select>
+    </form>
     <!---------------- light-dark-theme --------------------->
     <div class="themetoggle__container">
       <button type="button" class="themetoggle__btn">
         <svg
           class="themetoggle__icon"
-          width="30px"
-          height="30px"
+          width="23px"
+          height="23px"
           aria-label="toggle theme"
         >
           <use

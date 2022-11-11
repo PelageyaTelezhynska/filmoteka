@@ -1,6 +1,6 @@
 const BASE_URL = 'https://api.themoviedb.org/3/trending/';
 const endpoint = 'movie/day';
-const API_KEY = '90a449e7773f96eeaad80a5e660b8095';
+const API_KEY = 'a4b64e934bd6b381798223a1d6191ff5';
 
 export async function fetchTrending(pageNum) {
   const params = new URLSearchParams({

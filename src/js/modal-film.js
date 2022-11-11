@@ -7,17 +7,6 @@ const API_KEY = 'fa9433e46ed4abfaeb75bcf31f473feb';
 
 import { refs } from './refs';
 
-
-const refs = {
-  openModalCard: document.querySelector('[data-modal-open]'),
-  closeModalBtn: document.querySelector('[data-modal-close]'),
-  modal: document.querySelector('[data-modal]'),
-  body: document.querySelector('body'),
-  backdrop: document.querySelector('.backdrop'),
-};
-
-
-
 refs.openModalCard.addEventListener('click', openModal);
 refs.closeModalBtn.addEventListener('click', toggleModal);
 refs.backdrop.addEventListener('click', onBackdropClick);
@@ -61,12 +50,3 @@ function onEscPress(evt) {
     toggleModal();
   }
 }
-
-
-
-
-
-// const trailerBtn = document.querySelector('.trailer-btn');
-
-// trailerBtn.addEventListener('click', onTrailerClick);
-
