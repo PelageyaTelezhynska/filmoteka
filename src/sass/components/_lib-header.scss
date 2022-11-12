@@ -42,6 +42,10 @@
   position: relative;
 }
 
+.library-lib--current {
+  border-bottom: 3px solid $accentColor;
+}
+
 .buttons {
   display: flex;
   justify-content: space-between;
