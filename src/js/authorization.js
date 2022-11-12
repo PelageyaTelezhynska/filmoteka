@@ -1,37 +1,30 @@
 (() => {
-    const refs = {
-      openModalAuthBtn: document.querySelector("[data-open-modal]"),
-      modal: document.querySelector("[data-modal-auth]"),
-      body: document.querySelector('body'),
-      closeModalAuthBtn: document.querySelector('[data-modal-auth-close]'),
-    //   backdrop: document.querySelector('.backdrop'), 
+  const refs = {
+    openModalAuthBtn: document.querySelector('[data-open-modal]'),
+    modal: document.querySelector('[data-modal-auth]'),
+    body: document.querySelector('body'),
+    closeModalAuthBtn: document.querySelector('[data-modal-auth-close]'),
+    //   backdrop: document.querySelector('.backdrop'),
     //   authModal: document.querySelector('.auth'),
-      
-    };
-  
-    refs.openModalAuthBtn.addEventListener("click", toggleModal);
-    refs.closeModalAuthBtn.addEventListener('click', toggleModal);
-   
+  };
 
-    function toggleModal() {
-        window.addEventListener('keydown', onEscPress);
-        refs.modal.classList.toggle('is-hidden');
-        refs.body.classList.toggle('no-scroll');
-        if (refs.modal.classList.contains('is-hidden')) {
-          window.removeEventListener('keydown', onEscPress);
-        }
-      }
-    function onEscPress(evt) {
-        if (evt.key === 'Escape') {
-          toggleModal();
-        }
-      }
+  refs.openModalAuthBtn.addEventListener('click', toggleModal);
+  refs.closeModalAuthBtn.addEventListener('click', toggleModal);
 
-      }
-  )();
-
-  
- 
+  function toggleModal() {
+    window.addEventListener('keydown', onEscPress);
+    refs.modal.classList.toggle('is-hidden');
+    refs.body.classList.toggle('no-scroll');
+    if (refs.modal.classList.contains('is-hidden')) {
+      window.removeEventListener('keydown', onEscPress);
+    }
+  }
+  function onEscPress(evt) {
+    if (evt.key === 'Escape') {
+      toggleModal();
+    }
+  }
+})();
 
 //   import { initializeApp } from "firebase/app";
 //   import { getAuth, connectAuthEmulator, signInWithEmailAndPassword } from "firebase/auth";
@@ -41,12 +34,12 @@
 
 // // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyC1vNwE6Odm3cY-4r7HKv-I1HhCNLuoCfQ",
-  authDomain: "filmoteka-c6a00.firebaseapp.com",
-  projectId: "filmoteka-c6a00",
-  storageBucket: "filmoteka-c6a00.appspot.com",
-  messagingSenderId: "1058279257997",
-  appId: "1:1058279257997:web:97275c3089ad13e77f6fc4"
+  apiKey: 'AIzaSyC1vNwE6Odm3cY-4r7HKv-I1HhCNLuoCfQ',
+  authDomain: 'filmoteka-c6a00.firebaseapp.com',
+  projectId: 'filmoteka-c6a00',
+  storageBucket: 'filmoteka-c6a00.appspot.com',
+  messagingSenderId: '1058279257997',
+  appId: '1:1058279257997:web:97275c3089ad13e77f6fc4',
 };
 
 // // Initialize Firebase
@@ -70,42 +63,43 @@ authSwitchLinks.forEach(link => {
   });
 });
 
-// register form
-registerForm.addEventListener('submit', (evt) => {
-    evt.preventDefault();
-    
-    const email = registerForm.email.value;
-    const password = registerForm.password.value;
-  
-    firebase.auth().createUserWithEmailAndPassword(auth, email, password)
-      .then(user => {
-        console.log('registered', user);
-        registerForm.reset();
-      })
-      .catch(error => {
-        registerForm.querySelector('.error').textContent = error.message;
-      });
-  });
-  
-  // login form
-  loginForm.addEventListener('submit', (evt) => {
-    evt.preventDefault();
-    
-    const email = loginForm.email.value;
-    const password = loginForm.password.value;
-  
-    firebase.auth().signInWithEmailAndPassword(auth, email, password)
-      .then(user => {
-        console.log('logged in', user);
-        loginForm.reset();
-      })
-      .catch(error => {
-        loginForm.querySelector('.error').textContent = error.message;
-      });
-  });
+// // register form
+// registerForm.addEventListener('submit', evt => {
+//   evt.preventDefault();
 
+//   const email = registerForm.email.value;
+//   const password = registerForm.password.value;
 
-   // auth listener
+//   firebase
+//     .auth()
+//     .createUserWithEmailAndPassword(auth, email, password)
+//     .then(user => {
+//       console.log('registered', user);
+//       registerForm.reset();
+//     })
+//     .catch(error => {
+//       registerForm.querySelector('.error').textContent = error.message;
+//     });
+// });
+
+// login form
+// loginForm.addEventListener('submit', (evt) => {
+//   evt.preventDefault();
+
+//   const email = loginForm.email.value;
+//   const password = loginForm.password.value;
+
+//   firebase.auth().signInWithEmailAndPassword(auth, email, password)
+//     .then(user => {
+//       console.log('logged in', user);
+//       loginForm.reset();
+//     })
+//     .catch(error => {
+//       loginForm.querySelector('.error').textContent = error.message;
+//     });
+// });
+
+// auth listener
 //   firebase.auth().onAuthStateChanged(user => {
 //     if (user) {
 //       authWrapper.classList.remove('open');
