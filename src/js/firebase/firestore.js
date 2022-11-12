@@ -3,8 +3,6 @@ import { addDoc, getDocs, collection, doc } from 'firebase/firestore';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { refs } from '../refs';
 
-refs.base.addEventListener('click', addDataWatched);
-
 //
 const db = initDataBase();
 const auth = getAuth();

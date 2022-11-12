@@ -1,31 +1,51 @@
 <!-- auth 2 modals with switch -->
 <div class="backdrop is-hidden" data-modal-auth>
-    <div class="auth">
-        <button type="button" class="btn-close" data-modal-auth-close>
-            <svg class="icon-close" width="30" height="30">
-              <use href="/src/images/sprite.svg#icon-close-menu"></use>
-            </svg>
-          </button>
-       <div class="modal-auth">
-         <h2>Login</h2>
-         <form class="login auth-form">
-           <input class="auth-input" type="text" name="email" placeholder="Email">
-           <input class="auth-input" type="password" name="password" placeholder="Password">
-           <button class="modal-btn">Login</button>
-           <p class="error"></p>
-         </form>
-         <div>No account? <button class="switch">Register instead</button></div>
-       </div>
-       <div class="modal-auth is-hidden">
-         <h2>Register</h2>
-         <form class="register auth-form">
-           <input class="auth-input" type="text" name="email" placeholder="Email">
-           <input class="auth-input" type="password" name="password" placeholder="Password">
-           <button class="modal-btn">Register</button>
-           <p class="error"></p>
-         </form>
-         <div>Got an account? <button class="switch">Login instead</button></div>
-       </div>
-     </div>
-   </div>
-   
+  <div class="auth">
+    <button type="button" class="btn-close" data-modal-auth-close>
+      <svg class="icon-close" width="30" height="30">
+        <use href="/src/images/sprite.svg#icon-close-menu"></use>
+      </svg>
+    </button>
+    <div class="modal-auth">
+      <h2>Login</h2>
+      <form class="login auth-form">
+        <input
+          class="auth-input"
+          type="text"
+          name="email"
+          placeholder="Email"
+        />
+        <input
+          class="auth-input"
+          type="password"
+          name="password"
+          placeholder="Password"
+        />
+        <button class="modal-btn">Login</button>
+        <button class="modal-btn" data-sigin-google>Sign in with Google</button>
+        <p class="error"></p>
+      </form>
+      <div>No account? <button class="switch">Register instead</button></div>
+    </div>
+    <div class="modal-auth is-hidden">
+      <h2>Register</h2>
+      <form class="register auth-form">
+        <input
+          class="auth-input"
+          type="text"
+          name="email"
+          placeholder="Email"
+        />
+        <input
+          class="auth-input"
+          type="password"
+          name="password"
+          placeholder="Password"
+        />
+        <button class="modal-btn">Register</button>
+        <p class="error"></p>
+      </form>
+      <div>Got an account? <button class="switch">Login instead</button></div>
+    </div>
+  </div>
+</div>
