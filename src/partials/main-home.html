@@ -2,7 +2,7 @@
   <div class="container">
       <section class="splide">
         <div class="splide__track">
-          <ul class="splide__list"></ul>
+          <ul class="splide__list" data-modal-open-slider></ul>
         </div>
       </section>
     </div>
@@ -13,6 +13,7 @@
 
     <!-- список, у який будуть рендеритися шаблони карток фільмів -->
     <div class="movies__list" data-modal-open></div>
+    <div class="sentinel"></div>
 
     <!-- ----модалка для картки фільму -->
     <div class="backdrop is-hidden" data-modal>
@@ -30,6 +31,19 @@
           </button>
       </div>
     </div>
+
+    <!-- -------------модалка для слайдера------------- -->
+    <div class="backdrop-slider is-hidden" data-modal-slider>
+      <div class="movie-modal">
+        <button type="button" class="btn-close" data-modal-close-slider>
+          <svg class="icon-close" width="30" height="30">
+            <use href="./images/sprite.svg#icon-close-menu"></use>
+          </svg>
+        </button>
+        <div class="wrap-disc"></div>
+      </div>
+    </div>
+
 
     <!-- ----пагінація -->
     <include src="./partials/pagination.html"></include>

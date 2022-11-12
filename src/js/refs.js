@@ -13,5 +13,8 @@ export const refs = {
   footerBtn: document.querySelector('.footer-btn'),
   backdropFooter: document.querySelector('.backdrop-footer'),
   slider: document.querySelector('.splide__list'),
+  sliderModal: document.querySelector('[data-modal-open-slider]'),
+  backdropSlider: document.querySelector('.backdrop-slider'),
+  closeModalSliderBtn: document.querySelector('[data-modal-close-slider]'),
   trailerBtn: document.querySelector('.trailer-btn'),
 };
