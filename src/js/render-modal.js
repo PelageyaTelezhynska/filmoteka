@@ -44,8 +44,10 @@ export function renderMarkupModal(data) {
         add to queue
       </button>
     </div>
-  </div>`;
+    </div>
+  </div>`
   document.querySelector('.wrap-disc').innerHTML = markup;
+
 
   addToLocale(data);
 }

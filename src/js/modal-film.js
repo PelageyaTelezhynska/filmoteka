@@ -1,14 +1,20 @@
 import { renderMarkupModal } from './render-modal';
 import { fetchModal } from './fetch-modal';
 import { spinnerOn, spinnerOff } from './spinner';
+import {fetchTrailer} from './modal-trailer';
+const BASE_URL = 'https://api.themoviedb.org/3/movie/';
+const API_KEY = 'fa9433e46ed4abfaeb75bcf31f473feb';
 
 import { refs } from './refs';
 
 refs.openModalCard.addEventListener('click', openModal);
 refs.closeModalBtn.addEventListener('click', toggleModal);
 refs.backdrop.addEventListener('click', onBackdropClick);
+refs.closeModalBtn.addEventListener('click', toggleModal);
 
-function openModal(evt) {
+
+
+export function openModal(evt) {
   if (evt.currentTarget === evt.target) {
     return;
   }
@@ -23,6 +29,9 @@ function openModal(evt) {
     .finally(() => spinnerOff());
   spinnerOn();
   toggleModal();
+  refs.trailerBtn.addEventListener('click', () => fetchTrailer(currentId));
+
+  
 }
 
 function toggleModal() {
@@ -45,3 +54,4 @@ function onEscPress(evt) {
     toggleModal();
   }
 }
+
