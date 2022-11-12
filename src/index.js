@@ -7,5 +7,6 @@ import './js/authorization';
 import './js/fetch-trailer';
 import './js/api-servise';
 import './js/modal-trailer';
+import './js/proxy';
 
 // import './js/render-storage';
