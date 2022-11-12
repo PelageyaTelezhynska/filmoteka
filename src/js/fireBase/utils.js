@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 
+//-----------конфігурації Fire Base.  ------------//
 const config = {
   apiKey: 'AIzaSyDk8J8SmVaOfemZz_M9I9pQzOt5IQ17vRI',
   authDomain: 'filmoteca-de280.firebaseapp.com',
@@ -21,11 +22,11 @@ function getFirebaseConfig() {
     return config;
   }
 }
+
 export function initFireBase() {
   return initializeApp(getFirebaseConfig());
 }
 
 export function initDataBase() {
-  const app = initFireBase();
-  return getFirestore(app);
+  return initFireBase();
 }
