@@ -8,5 +8,7 @@ import './js/fetch-trailer';
 import './js/api-servise';
 import './js/modal-trailer';
 import './js/proxy';
+import './js/firebase/firebase-auth';
+import './js/firebase/firestore';
 
 // import './js/render-storage';
