@@ -70,6 +70,7 @@ function GoogleSigIn() {
   let userId = null;
   signInWithPopup(auth, provider)
     .then(userCredential => {
+    const user = userCredential.user;
       Notiflix.Notify.success(`Sign-in with ${user.email} successful`);
       userId = userCredential.user.uid;
       getDocs(collection(db, userId))
