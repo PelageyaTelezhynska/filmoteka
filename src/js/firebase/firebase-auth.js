@@ -28,6 +28,7 @@ const provider = new GoogleAuthProvider();
 onAuthStateChanged(auth, user => {
   if (user) {
     refs.modal.classList.add('is-hidden');
+    refs.body.classList.remove('no-scroll');
     refs.openModalAuthBtn.classList.add('is-hidden');
     refs.sigInGoogleBtn.classList.add('is-hidden');
     refs.signOutBtn.classList.remove('is-hidden');
@@ -79,18 +80,17 @@ function GoogleSigIn() {
       const user = userCredential.user;
       Notiflix.Notify.success(`Sign-in with ${user.email} successful`);
       userId = userCredential.user.uid;
-      getDocs(collection(db, userId))
-      .then(snapshot => {
+      getDocs(collection(db, userId)).then(snapshot => {
         // const myLibList = snapshot.docs[0].data();
         // console.log(snapshot.docs[0]);
-        if(snapshot.docs[0])console.log('Nice to see you again');
+        if (snapshot.docs[0]) console.log('Nice to see you again');
         else {
           setDoc(doc(db, userId, '00000001'), {
             Queue: [],
             Watched: [],
           });
           console.log(userId);
-        };
+        }
       });
     })
     .catch(error => {
@@ -101,7 +101,7 @@ function GoogleSigIn() {
       //   });
       //   console.log('First sign in');
       // } else
-        Notiflix.Notify.failure('Sign-in with Google account error happened');
+      Notiflix.Notify.failure('Sign-in with Google account error happened');
     });
 }
 
