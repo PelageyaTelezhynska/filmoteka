@@ -1,31 +1,14 @@
-/////////////////////////Initialize Firebase//////////////////////////
-import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
-
-const firebaseConfig = {
-  apiKey: "AIzaSyD6Ady1jhuAgqwFL0qbhu5KyUIJdTFoZmc",
-  authDomain: "filmoteka-268b8.firebaseapp.com",
-  projectId: "filmoteka-268b8",
-  storageBucket: "filmoteka-268b8.appspot.com",
-  messagingSenderId: "661144848024",
-  appId: "1:661144848024:web:d78c5ac841ef43fb0472ed"
-};
-
-// Initialize Firebase app
-initializeApp(firebaseConfig);
-
-// init services
-const db = getFirestore();
-
-// refs
-const colId  = 'User01';
-const colRef = collection(db, colId );
-
-//////////////////////////////////////////////////////////////////////
-
-
 import Pagination from 'tui-pagination';
 import { toggleLightTheme } from './day-night-theme';
+import { initFireBase } from './firebase/utils';
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
+
+initFireBase();
+
+const db = getFirestore();
+
+const colId  = localStorage.getItem('UserID');
+const colRef = collection(db, colId );
 
 const divQueue = document.querySelector('.movies__list');
 
@@ -35,8 +18,6 @@ export function myLibPagination(fieldName) {
   getDocs(colRef)
   .then(snapshot => {
     const myLibList = snapshot.docs[0].data();
-    // if (!JSON.parse(localStorage.getItem(fieldName))) return;
-    // let queueTotalResults = JSON.parse(localStorage.getItem(fieldName)).length;
     let queueTotalResults = fieldName === 'Queue'? 
     myLibList.Queue.length:
     myLibList.Watched.length;
