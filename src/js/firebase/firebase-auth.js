@@ -8,11 +8,13 @@ import {
   GoogleAuthProvider,
   onAuthStateChanged,
 } from 'firebase/auth';
+import { getFirestore, collection, doc, getDocs, setDoc} from 'firebase/firestore';
 import { initFireBase } from './utils';
 import { refs } from '../refs';
 import Notiflix from 'notiflix';
 
 initFireBase();
+const db = getFirestore();
 const auth = getAuth();
 const provider = new GoogleAuthProvider();
 
@@ -26,12 +28,16 @@ onAuthStateChanged(auth, user => {
     refs.userInfo.innerHTML = `
               <span>${user.email}</span>
             `;
+    refs.myLibLink.classList.remove('visually-hidden');
+    localStorage.setItem('UserID', user.uid);
   } else {
     console.log('User Is Out');
     refs.openModalAuthBtn.classList.remove('is-hidden');
     refs.sigInGoogleBtn.classList.remove('is-hidden');
     refs.signOutBtn.classList.add('is-hidden');
     refs.userInfo.innerHTML = ``;
+    refs.myLibLink.classList.add('visually-hidden');
+    localStorage.setItem('UserID', 'DefaultUser');
   }
 });
 
@@ -61,13 +67,23 @@ function onSignIn(e) {
 }
 
 function GoogleSigIn() {
+  let userId = null;
   signInWithPopup(auth, provider)
     .then(userCredential => {
-      const user = userCredential.user;
+    const user = userCredential.user;
       Notiflix.Notify.success(`Sign-in with ${user.email} successful`);
+      userId = userCredential.user.uid;
+      getDocs(collection(db, userId))
+      .then(() => console.log('Nice to see you again'));
     })
     .catch(error => {
-      Notiflix.Notify.failure('Sign-in with Google account error happened');
+      if(userId){
+        setDoc(doc(db, userId, "00000001"), {
+          Queue: [],
+          Watched: [],
+        });
+        console.log('First sign in');
+      } else Notiflix.Notify.failure('Sign-in with Google account error happened');
     });
 }
 
@@ -80,6 +96,11 @@ function onCreateUser(e) {
     .then(userCredential => {
       const user = userCredential.user;
       Notiflix.Notify.success(`User Created with email:${user.email}`);
+      setDoc(doc(db, user.uid, "00000001"), {
+        Queue: [],
+        Watched: [],
+      });
+      localStorage.setItem('UserID', user.uid);
     })
     .catch(error => {
       Notiflix.Notify.failure('User no created');

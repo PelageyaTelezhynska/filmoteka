@@ -57,8 +57,6 @@ function onEscPress(evt) {
 
 //щоб трейлкр закривався при закритті модалки 
 refs.closeModalBtn.addEventListener('click', () => {
-  document.querySelector('.modal-trailer').innerHTML = '';
-}
-);
-
-
+  document.querySelector('.modal-trailer')?
+  document.querySelector('.modal-trailer').innerHTML = '' : null;
+});

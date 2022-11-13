@@ -29,4 +29,5 @@ export const refs = {
   authWrapper: document.querySelector('.auth'),
   registerForm: document.querySelector('.register'),
   loginForm: document.querySelector('.login'),
+  myLibLink: document.querySelector('.js-nav-lib-page'),
 };
