@@ -1,10 +1,11 @@
 import { fetchTrending } from './fetch-trending';
 import { configMarkupData } from './page-render';
 import { insertRenderMarkupTrending } from './render-trending';
-import { addPagination } from './pagination'
+import { addPagination } from './pagination';
 import { pageRender } from './page-render';
 import Pagination from 'tui-pagination';
 import Notiflix from 'notiflix';
+import { spinnerOn, spinnerOff } from './spinner';
 
 const selectGenre = document.querySelector('.genre-select');
 const sentinel = document.querySelector('.sentinel');
@@ -20,7 +21,7 @@ selectGenre.addEventListener('change', onGenreSelect);
 
 function onGenreSelect() {
   page = 1;
-  if(Number(selectGenre.value)) selectionGenre = Number(selectGenre.value);
+  if (Number(selectGenre.value)) selectionGenre = Number(selectGenre.value);
   else {
     document.querySelector('.movies__list').innerHTML = '';
     pageRender(1);
@@ -43,14 +44,22 @@ function creatingRenderData(page, selectionGenre) {
       filtrData(data, selectionGenre);
       if (JSON.parse(sessionStorage.getItem('searchGenresData')).length <= 18) {
         if (page >= 1000) {
-            insertRenderMarkupTrending(JSON.parse(sessionStorage.getItem('searchGenresData')));
-            Notiflix.Notify.info(`The list of ${selectGenre.options[selectGenre.selectedIndex].text} movies is over`);
-            return;
+          insertRenderMarkupTrending(
+            JSON.parse(sessionStorage.getItem('searchGenresData'))
+          );
+          Notiflix.Notify.info(
+            `The list of ${
+              selectGenre.options[selectGenre.selectedIndex].text
+            } movies is over`
+          );
+          return;
         }
         page += 1;
         creatingRenderData(page, selectionGenre);
       } else {
-        const storageData = JSON.parse(sessionStorage.getItem('searchGenresData'));
+        const storageData = JSON.parse(
+          sessionStorage.getItem('searchGenresData')
+        );
         const renderingData = storageData.splice(0, 18);
         sessionStorage.setItem('searchGenresData', JSON.stringify(storageData));
         page += 1;
@@ -60,7 +69,11 @@ function creatingRenderData(page, selectionGenre) {
         return;
       }
     })
-    .catch(console.log);
+    .catch(console.log)
+    .finally(() => {
+      spinnerOff();
+    });
+  spinnerOn();
 }
 
 function filtrData(data, selectionGenre) {
@@ -74,13 +87,13 @@ function filtrData(data, selectionGenre) {
 }
 
 function onLoad(entries) {
-    if(entries[0].isIntersecting){
-        page = JSON.parse(sessionStorage.getItem('searchGenresPage'))
-        console.log(page);
-        creatingRenderData(page, selectionGenre)
-    }
+  if (entries[0].isIntersecting) {
+    page = JSON.parse(sessionStorage.getItem('searchGenresPage'));
+    console.log(page);
+    creatingRenderData(page, selectionGenre);
+  }
 }
 
 export function unobserve() {
-    observer.unobserve(sentinel);
+  observer.unobserve(sentinel);
 }

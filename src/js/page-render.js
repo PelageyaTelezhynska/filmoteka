@@ -3,7 +3,6 @@ import { fetchTrending } from './fetch-trending';
 import { spinnerOn, spinnerOff } from './spinner';
 import { toggleLightTheme } from './day-night-theme';
 
-
 export function parseMeta(data) {
   data.results.map(elem => {
     if (elem.release_date) elem.release_date = elem.release_date.slice(0, 4);

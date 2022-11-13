@@ -10,6 +10,7 @@ import {
 } from 'firebase/auth';
 import { initFireBase } from './utils';
 import { refs } from '../refs';
+import Notiflix from 'notiflix';
 
 initFireBase();
 const auth = getAuth();
@@ -45,27 +46,28 @@ refs.signOutBtn.addEventListener('click', onLogOut);
 
 function onSignIn(e) {
   e.preventDefault();
+  const form = e.target;
   const login = e.target[0].value.trim();
   const password = e.target[1].value.trim();
   signInWithEmailAndPassword(auth, login, password)
     .then(userCredential => {
       const user = userCredential.user;
-      console.log('Sign-in with login successful');
+      Notiflix.Notify.success(`Signin with ${user.email} successful`);
     })
     .catch(error => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log('Sign-in with login error happened', errorCode, errorMessage);
+      Notiflix.Notify.failure(`Sign-in  error happened`);
     });
+  form.reset();
 }
 
 function GoogleSigIn() {
   signInWithPopup(auth, provider)
-    .then(result => {
-      console.log('Sign-in with GOOGLE successful');
+    .then(userCredential => {
+      const user = userCredential.user;
+      Notiflix.Notify.success(`Sign-in with ${user.email} successful`);
     })
     .catch(error => {
-      console.log('Sign-in with GOOGLE error happened');
+      Notiflix.Notify.failure('Sign-in with Google account error happened');
     });
 }
 
@@ -76,24 +78,17 @@ function onCreateUser(e) {
   const form = e.target;
   createUserWithEmailAndPassword(auth, email, password)
     .then(userCredential => {
-      form.reset();
-      console.log('USER CREATED');
       const user = userCredential.user;
+      Notiflix.Notify.success(`User Created with email:${user.email}`);
     })
     .catch(error => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorCode);
-      console.log(errorMessage);
+      Notiflix.Notify.failure('User no created');
     });
+  form.reset();
 }
 
 function onLogOut() {
   signOut(auth)
-    .then(() => {
-      console.log('Sign-out successful');
-    })
-    .catch(error => {
-      console.log('Sign-out error happened');
-    });
+    .then(() => {})
+    .catch(error => {});
 }
