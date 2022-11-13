@@ -1,7 +1,7 @@
 import { renderMarkupModal } from './render-modal';
 import { fetchModal } from './fetch-modal';
 import { spinnerOn, spinnerOff } from './spinner';
-import {fetchTrailer} from './modal-trailer';
+import { fetchTrailer} from './modal-trailer';
 const BASE_URL = 'https://api.themoviedb.org/3/movie/';
 const API_KEY = 'fa9433e46ed4abfaeb75bcf31f473feb';
 
@@ -29,7 +29,7 @@ export function openModal(evt) {
     .finally(() => spinnerOff());
   spinnerOn();
   toggleModal();
-  refs.trailerBtn.addEventListener('click', () => fetchTrailer(currentId));
+  refs.trailerBtn.addEventListener('click', () => fetchTrailer(currentId), { once: true });
 
   
 }
@@ -54,4 +54,11 @@ function onEscPress(evt) {
     toggleModal();
   }
 }
+
+//щоб трейлкр закривався при закритті модалки 
+refs.closeModalBtn.addEventListener('click', () => {
+  document.querySelector('.modal-trailer').innerHTML = '';
+}
+);
+
 
