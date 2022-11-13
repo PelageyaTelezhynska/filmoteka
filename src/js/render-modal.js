@@ -1,11 +1,15 @@
 import { addToLocale } from './localeStorage-watch&queue';
+import defaultImg from '../images/keep-calm-poster-not-found.webp';
 
 export function renderMarkupModal(data) {
-  
-    const urlSrc = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
-    const markup = ` <img class='modal-poster'
-   src=${urlSrc} alt=${data.title}
-    onerror="this.onerror=null;this.src='https://sd.keepcalms.com/i-w600/keep-calm-poster-not-found.jpg';"
+  const markup = ` <img class='modal-poster'
+   src="${
+     data.poster_path
+       ? `https://image.tmdb.org/t/p/w500${data.poster_path}`
+       : defaultImg
+   }"
+    alt=${data.title}
+   
     width='240'/>
   <div>
     <div>
@@ -45,7 +49,7 @@ export function renderMarkupModal(data) {
     </div>
     </div>
   </div>`;
-    document.querySelector('.wrap-disc').innerHTML = markup;
+  document.querySelector('.wrap-disc').innerHTML = markup;
 
-    addToLocale(data);
+  addToLocale(data);
 }
