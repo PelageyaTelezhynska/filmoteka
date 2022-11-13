@@ -1,9 +1,12 @@
 {{#each this}}
-
   <div class='movie-card js-item' data-id='{{id}}'>
     <img
       class='movie-poster'
+      {{#if poster_path}}
       src='https://image.tmdb.org/t/p/w500{{poster_path}}'
+      {{else}}
+      src='https://sd.keepcalms.com/i-w600/keep-calm-poster-not-found.jpg'
+      {{/if}}
       alt='{{title}}{{name}}'
       onerror="this.onerror=null;this.src='https://sd.keepcalms.com/i-w600/keep-calm-poster-not-found.jpg';"
       loading='lazy'
