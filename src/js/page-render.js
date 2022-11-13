@@ -22,7 +22,7 @@ export function parseMeta(data) {
     }
     data.results[idx].genres_name_str = genresName.join(', ');
   });
-  console.log(data.results);
+  // console.log(data.results);
   return data;
 }
 
