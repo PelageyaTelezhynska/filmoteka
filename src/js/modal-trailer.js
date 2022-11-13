@@ -19,7 +19,6 @@ async function fetchTrailer(currentId) {
     const response = await axios.get(
       `${BASE_URL}${currentId}/videos?api_key=${API_KEY}&language=en-US`
     );
-
     const key = response.data.results[0].key;
     renderTrailer(key);
   } catch (error) {
@@ -29,11 +28,26 @@ async function fetchTrailer(currentId) {
 }
 
 function renderTrailer(key) {
-  const instance = basicLightbox.create(`
-        <div class="modal-trailer">
+  const instance = basicLightbox.create(
+    `<div class="modal-trailer">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/${key}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>`);
-  instance.show();
+        </div>`,
+    {
+      onShow: () => {
+        window.addEventListener('keydown', onEsc);
+      },
+      onClose: () => {
+        window.removeEventListener('keydown', onEsc);
+      },
+    }
+  );
+    instance.show();
+     function onEsc(evt) {
+       if (evt.key === 'Escape') {
+         instance.close();
+       }
+     }
 }
+
 
 export { fetchTrailer };

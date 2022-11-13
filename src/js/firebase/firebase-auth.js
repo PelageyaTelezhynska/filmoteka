@@ -8,7 +8,13 @@ import {
   GoogleAuthProvider,
   onAuthStateChanged,
 } from 'firebase/auth';
-import { getFirestore, collection, doc, getDocs, setDoc} from 'firebase/firestore';
+import {
+  getFirestore,
+  collection,
+  doc,
+  getDocs,
+  setDoc,
+} from 'firebase/firestore';
 import { initFireBase } from './utils';
 import { refs } from '../refs';
 import Notiflix from 'notiflix';
@@ -31,7 +37,7 @@ onAuthStateChanged(auth, user => {
     refs.myLibLink.classList.remove('visually-hidden');
     localStorage.setItem('UserID', user.uid);
   } else {
-    console.log('User Is Out');
+    // console.log('User Is Out');
     refs.openModalAuthBtn.classList.remove('is-hidden');
     refs.sigInGoogleBtn.classList.remove('is-hidden');
     refs.signOutBtn.classList.add('is-hidden');
@@ -70,20 +76,22 @@ function GoogleSigIn() {
   let userId = null;
   signInWithPopup(auth, provider)
     .then(userCredential => {
-    const user = userCredential.user;
+      const user = userCredential.user;
       Notiflix.Notify.success(`Sign-in with ${user.email} successful`);
       userId = userCredential.user.uid;
-      getDocs(collection(db, userId))
-      .then(() => console.log('Nice to see you again'));
+      getDocs(collection(db, userId)).then(() =>
+        console.log('Nice to see you again')
+      );
     })
     .catch(error => {
-      if(userId){
-        setDoc(doc(db, userId, "00000001"), {
+      if (userId) {
+        setDoc(doc(db, userId, '00000001'), {
           Queue: [],
           Watched: [],
         });
         console.log('First sign in');
-      } else Notiflix.Notify.failure('Sign-in with Google account error happened');
+      } else
+        Notiflix.Notify.failure('Sign-in with Google account error happened');
     });
 }
 
@@ -96,7 +104,7 @@ function onCreateUser(e) {
     .then(userCredential => {
       const user = userCredential.user;
       Notiflix.Notify.success(`User Created with email:${user.email}`);
-      setDoc(doc(db, user.uid, "00000001"), {
+      setDoc(doc(db, user.uid, '00000001'), {
         Queue: [],
         Watched: [],
       });

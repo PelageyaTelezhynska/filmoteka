@@ -1,7 +1,7 @@
 import { renderMarkupModal } from './render-modal';
 import { fetchModal } from './fetch-modal';
 import { spinnerOn, spinnerOff } from './spinner';
-import { fetchTrailer} from './modal-trailer';
+import { fetchTrailer } from './modal-trailer';
 const BASE_URL = 'https://api.themoviedb.org/3/movie/';
 const API_KEY = 'fa9433e46ed4abfaeb75bcf31f473feb';
 
@@ -10,9 +10,7 @@ import { refs } from './refs';
 refs.openModalCard.addEventListener('click', openModal);
 refs.closeModalBtn.addEventListener('click', toggleModal);
 refs.backdrop.addEventListener('click', onBackdropClick);
-refs.closeModalBtn.addEventListener('click', toggleModal);
-
-
+// refs.closeModalBtn.addEventListener('click', toggleModal);
 
 export function openModal(evt) {
   if (evt.currentTarget === evt.target) {
@@ -28,10 +26,11 @@ export function openModal(evt) {
     })
     .finally(() => spinnerOff());
   spinnerOn();
-  toggleModal();
-  refs.trailerBtn.addEventListener('click', () => fetchTrailer(currentId), { once: true });
 
-  
+  refs.trailerBtn.addEventListener('click', () => fetchTrailer(currentId), {
+    once: true,
+  });
+  toggleModal();
 }
 
 function toggleModal() {
@@ -50,13 +49,14 @@ function onBackdropClick(evt) {
 }
 
 function onEscPress(evt) {
-  if (evt.key === 'Escape') {
+  if (evt.key === 'Escape' && !document.querySelector('.modal-trailer')) {
     toggleModal();
   }
 }
 
-//щоб трейлкр закривався при закритті модалки 
+// щоб трейлер закривався при закритті модалки
 refs.closeModalBtn.addEventListener('click', () => {
-  document.querySelector('.modal-trailer')?
-  document.querySelector('.modal-trailer').innerHTML = '' : null;
+  document.querySelector('.modal-trailer')
+    ? (document.querySelector('.modal-trailer').innerHTML = '')
+    : null;
 });
