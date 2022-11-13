@@ -1,6 +1,12 @@
 /////////////////////////Initialize Firebase//////////////////////////
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import {
+  getFirestore, collection, getDocs, getDoc, onSnapshot,
+  addDoc, deleteDoc, doc,
+  query, where,
+  orderBy, serverTimestamp,
+  updateDoc
+} from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: "AIzaSyD6Ady1jhuAgqwFL0qbhu5KyUIJdTFoZmc",
@@ -31,43 +37,36 @@ const divQueue = document.querySelector('.movies__list');
 
 toggleLightTheme();
 
-export function myLibPagination(fieldName) {
-  getDocs(colRef)
-  .then(snapshot => {
-    const myLibList = snapshot.docs[0].data();
-    // if (!JSON.parse(localStorage.getItem(fieldName))) return;
-    // let queueTotalResults = JSON.parse(localStorage.getItem(fieldName)).length;
-    let queueTotalResults = fieldName === 'Queue'? 
-    myLibList.Queue.length:
-    myLibList.Watched.length;
+export function myLibPagination(localStorKey) {
+  if (!JSON.parse(localStorage.getItem(localStorKey))) return;
+  let queueTotalResults = JSON.parse(localStorage.getItem(localStorKey)).length;
+  const pagination = new Pagination(document.getElementById('pagination'), {
+    totalItems: queueTotalResults,
+    itemsPerPage: 18,
+    visiblePages: 5,
+    centerAlign: true,
+  });
 
-    const pagination = new Pagination(document.getElementById('pagination'), {
-      totalItems: queueTotalResults,
-      itemsPerPage: 18,
-      visiblePages: 5,
-      centerAlign: true,
-    });
+  if (queueTotalResults <= 18) return pagination.off;
 
-    if (queueTotalResults <= 18) return pagination.off;
-
-    pagination.on('afterMove', function (eventData) {
-      myLibRender(eventData.page, fieldName);
-      localStorage.setItem('current_page', pagination.getCurrentPage());
-    });
-  })
-  .catch(err => {
-    console.log(err.message)
-  })
+  pagination.on('afterMove', function (eventData) {
+    myLibRender(eventData.page, localStorKey);
+    localStorage.setItem('current_page', pagination.getCurrentPage());
+  });
 }
 
-export function myLibRender(page, fieldName) {
+export function myLibRender(page, localStorKey) {
 
   getDocs(colRef)
   .then(snapshot => {
     const myLibList = snapshot.docs[0].data();
-    const data = fieldName === 'Queue'? 
-    myLibList.Queue.slice(page * 18 - 18, page * 18):
-    myLibList.Watched.slice(page * 18 - 18, page * 18);
+    // console.log(snapshot.docs[0].id);
+    // console.log(myLibList.Watched);
+    // console.log(myLibList.Queue);    
+    const data = JSON.parse(localStorage.getItem(localStorKey)).slice(
+      page * 18 - 18,
+      page * 18
+    );
     divQueue.innerHTML = '';
     divQueue.insertAdjacentHTML('beforeend', renderMarkupStorage(data));
   })

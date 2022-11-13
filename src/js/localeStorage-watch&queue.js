@@ -1,7 +1,35 @@
+////////////////////////Initialize Firebase/////////////////////////
+import { initializeApp } from 'firebase/app';
+import { 
+  getFirestore, collection, doc, getDocs, updateDoc
+ } from 'firebase/firestore';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyD6Ady1jhuAgqwFL0qbhu5KyUIJdTFoZmc",
+  authDomain: "filmoteka-268b8.firebaseapp.com",
+  projectId: "filmoteka-268b8",
+  storageBucket: "filmoteka-268b8.appspot.com",
+  messagingSenderId: "661144848024",
+  appId: "1:661144848024:web:d78c5ac841ef43fb0472ed"
+};
+
+// Initialize Firebase app
+initializeApp(firebaseConfig);
+
+// init services
+const db = getFirestore();
+
+// refs
+const colId  = 'User01';
+const colRef = collection(db, colId );
+
+////////////////////////////////////////////////////////////////////
+
+
 import markup from './templates/markup-trending.hbs';
 
-const WATCHED = 'Watched';
-const QUEUE = 'Queue';
+// const WATCHED = 'Watched';
+// const QUEUE = 'Queue';
 
 export function addToLocale(data) {
   const filmObject = JSON.stringify(data);
@@ -16,63 +44,111 @@ export function addToLocale(data) {
   refs.watched.addEventListener('click', addToWatched);
   refs.queue.addEventListener('click', addToQueue);
 
-  try {
-    if (localStorage.getItem(WATCHED).includes(filmObject)) {
-      refs.watched.classList.add('active-btn');
-      refs.watched.textContent = 'REMOVE FROM WATCHED';
-    }
-  } catch (error) {}
+  // get collection data
+  getDocs(colRef)
+    .then(snapshot => {
+      const myLibList = snapshot.docs[0].data();
+      // console.log(snapshot.docs[0].id);
+      // console.log(myLibList.Watched);
+      // console.log(myLibList.Queue);    
+      try {
+        if (JSON.stringify(myLibList.Watched).includes(filmObject)) {
+          refs.watched.classList.add('active-btn');
+          refs.watched.textContent = 'REMOVE FROM WATCHED';
+        }
+      } catch (error) {}
+    
+      try {
+        if (JSON.stringify(myLibList.Queue).includes(filmObject)) {
+          refs.queue.classList.add('active-btn');
+          refs.queue.textContent = 'REMOVE FROM QUEUE';
+        }
+      } catch (error) {}
 
-  try {
-    if (localStorage.getItem(QUEUE).includes(filmObject)) {
-      refs.queue.classList.add('active-btn');
-      refs.queue.textContent = 'REMOVE FROM QUEUE';
-    }
-  } catch (error) {}
+    })
+    .catch(err => {
+      console.log(err.message)
+    })
 
   function addToWatched() {
-    let watchedList = JSON.parse(localStorage.getItem(WATCHED)) || [];
+    getDocs(colRef)
+    .then(snapshot => {
+      const myLibList = snapshot.docs[0].data();
+      // console.log(myLibList.Watched);
+      // console.log(myLibList.Queue);
+      const docId = snapshot.docs[0].id;
+      let watchedList = myLibList.Watched || [];
+      // let watchedList = JSON.parse(localStorage.getItem(WATCHED)) || [];
 
-    if (watchedList.find(el => el.id === data.id)) {
-      refs.watched.classList.remove('active-btn');
-      refs.watched.textContent = 'ADD TO WATCHED';
-
-      watchedList = watchedList.filter(e => e.id !== data.id);
-
-      if (isLibraryPage) {
-        refs.maviesList.innerHTML = markup(watchedList);
-        refs.watched.disabled = true;
-        refs.watched.removeEventListener('click', addToWatched);
+      if (watchedList.find(el => el.id === data.id)) {
+        refs.watched.classList.remove('active-btn');
+        refs.watched.textContent = 'ADD TO WATCHED';
+  
+        watchedList = watchedList.filter(e => e.id !== data.id);
+  
+        if (isLibraryPage) {
+          refs.maviesList.innerHTML = markup(watchedList);
+          refs.watched.disabled = true;
+          refs.watched.removeEventListener('click', addToWatched);
+        }
+      } else {
+        refs.watched.classList.add('active-btn');
+        refs.watched.textContent = 'REMOVE FROM WATCHED';
+  
+        watchedList.push(data);
       }
-    } else {
-      refs.watched.classList.add('active-btn');
-      refs.watched.textContent = 'REMOVE FROM WATCHED';
+      // localStorage.setItem(WATCHED, JSON.stringify(watchedList));
+      // const docRef = doc(db, colId , docId)
+      updateDoc(doc(db, colId , docId), {
+        Watched: watchedList,
+      })
 
-      watchedList.push(data);
-    }
-    localStorage.setItem(WATCHED, JSON.stringify(watchedList));
+    })
+    .catch(err => {
+      console.log(err.message)
+    })
+
   }
 
   function addToQueue() {
-    let queueList = JSON.parse(localStorage.getItem(QUEUE)) || [];
+    getDocs(colRef)
+    .then(snapshot => {
+      const myLibList = snapshot.docs[0].data();
+      // console.log(myLibList.Watched);
+      // console.log(myLibList.Queue);
+      const docId = snapshot.docs[0].id;
+      let queueList = myLibList.Queue || [];
+      // let queueList = JSON.parse(localStorage.getItem(QUEUE)) || [];
 
-    if (queueList.find(el => el.id === data.id)) {
-      refs.queue.classList.remove('active-btn');
-      refs.queue.textContent = 'ADD TO QUEUE';
-
-      queueList = queueList.filter(e => e.id !== data.id);
-
-      if (isLibraryPage) {
-        refs.maviesList.innerHTML = markup(queueList);
-        refs.queue.disabled = true;
-        refs.queue.removeEventListener('click', addToQueue);
+      if (queueList.find(el => el.id === data.id)) {
+        refs.queue.classList.remove('active-btn');
+        refs.queue.textContent = 'ADD TO QUEUE';
+  
+        queueList = queueList.filter(e => e.id !== data.id);
+  
+        if (isLibraryPage) {
+          refs.maviesList.innerHTML = markup(queueList);
+          refs.queue.disabled = true;
+          refs.queue.removeEventListener('click', addToQueue);
+        }
+      } else {
+        refs.queue.classList.add('active-btn');
+        refs.queue.textContent = 'REMOVE FROM QUEUE';
+  
+        queueList.push(data);
       }
-    } else {
-      refs.queue.classList.add('active-btn');
-      refs.queue.textContent = 'REMOVE FROM QUEUE';
+      // localStorage.setItem(QUEUE, JSON.stringify(queueList));
+      // const docRef = doc(db, colId , docId)
+      updateDoc(doc(db, colId , docId), {
+        Queue: queueList,
+      })
 
-      queueList.push(data);
-    }
-    localStorage.setItem(QUEUE, JSON.stringify(queueList));
+    })
+    .catch(err => {
+      console.log(err.message)
+    })
+
+
+
   }
 }
