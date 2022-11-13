@@ -1,10 +1,9 @@
 import { addToLocale } from './localeStorage-watch&queue';
 
 export function renderMarkupModal(data) {
-  // const imgSrc =
-  //   'https://sd.keepcalms.com/i-w600/keep-calm-poster-not-found.jpg';
-  const urlSrc = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
-  const markup = ` <img class='modal-poster'
+  
+    const urlSrc = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
+    const markup = ` <img class='modal-poster'
    src=${urlSrc} alt=${data.title}
     onerror="this.onerror=null;this.src='https://sd.keepcalms.com/i-w600/keep-calm-poster-not-found.jpg';"
     width='240'/>
@@ -46,10 +45,7 @@ export function renderMarkupModal(data) {
     </div>
     </div>
   </div>`;
-  // img.onerror = function () {
-  //   alert('Ошибка во время загрузки изображения');
-  // };
-  document.querySelector('.wrap-disc').innerHTML = markup;
+    document.querySelector('.wrap-disc').innerHTML = markup;
 
-  addToLocale(data);
+    addToLocale(data);
 }
