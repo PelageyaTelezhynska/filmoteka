@@ -48,7 +48,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 54px;
 }
 
 .header__logo {
@@ -97,6 +96,7 @@ span.logo__name {
 }
 
 .header__sidenav {
+  position: relative;
   display: flex;
   align-items: center;
 }

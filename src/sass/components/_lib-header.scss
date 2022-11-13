@@ -49,9 +49,11 @@
 .buttons {
   display: flex;
   justify-content: space-between;
+  margin-top: 65px;
 
   @include tablet {
     justify-content: center;
+    margin-top: 52px;
   }
 }
 
