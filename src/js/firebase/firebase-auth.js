@@ -18,25 +18,13 @@ const provider = new GoogleAuthProvider();
 //-------checked status of user, log in or log out--------
 onAuthStateChanged(auth, user => {
   if (user) {
-    if (user.emailVerified) {
-      refs.modal.classList.add('is-hidden');
-      refs.openModalAuthBtn.classList.add('is-hidden');
-      refs.sigInGoogleBtn.classList.add('is-hidden');
-      refs.signOutBtn.classList.remove('is-hidden');
-      refs.userInfo.innerHTML = `
-             <img src="${auth.currentUser.photoURL}" width="32" />
-              <span>${user.displayName}</span>
-            `;
-    } else {
-      refs.modal.classList.add('is-hidden');
-      refs.openModalAuthBtn.classList.add('is-hidden');
-      refs.sigInGoogleBtn.classList.add('is-hidden');
-      refs.signOutBtn.classList.remove('is-hidden');
-      refs.userInfo.innerHTML = `
-              <img src="" width="32" />
+    refs.modal.classList.add('is-hidden');
+    refs.openModalAuthBtn.classList.add('is-hidden');
+    refs.sigInGoogleBtn.classList.add('is-hidden');
+    refs.signOutBtn.classList.remove('is-hidden');
+    refs.userInfo.innerHTML = `
               <span>${user.email}</span>
             `;
-    }
   } else {
     console.log('User Is Out');
     refs.openModalAuthBtn.classList.remove('is-hidden');
