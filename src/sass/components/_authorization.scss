@@ -60,7 +60,11 @@
   margin: 10px 0;
   padding: 8px 2px;
   border-width: 0 0 2px 0;
-  width: 130%;
+  width: 115%;
+
+  @include tablet {
+    width: 130%;
+  }
   @include desktop {
     width: 60%;
   }
