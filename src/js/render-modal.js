@@ -3,9 +3,9 @@ import { addToLocale } from './localeStorage-watch&queue';
 export function renderMarkupModal(data) {
   // const imgSrc =
   //   'https://sd.keepcalms.com/i-w600/keep-calm-poster-not-found.jpg';
-  const sorc = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
+  const urlSrc = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
   const markup = ` <img class='modal-poster'
-   src=${sorc} alt=${data.title}
+   src=${urlSrc} alt=${data.title}
     onerror="this.onerror=null;this.src='https://sd.keepcalms.com/i-w600/keep-calm-poster-not-found.jpg';"
     width='240'/>
   <div>
@@ -45,9 +45,11 @@ export function renderMarkupModal(data) {
       </button>
     </div>
     </div>
-  </div>`
+  </div>`;
+  // img.onerror = function () {
+  //   alert('Ошибка во время загрузки изображения');
+  // };
   document.querySelector('.wrap-disc').innerHTML = markup;
-
 
   addToLocale(data);
 }
