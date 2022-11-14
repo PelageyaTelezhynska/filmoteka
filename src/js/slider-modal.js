@@ -1,13 +1,15 @@
 import { renderMarkupModal } from './render-modal';
 import { fetchModal } from './fetch-modal';
 import { spinnerOn, spinnerOff } from './spinner';
+import { fetchTrailer } from './modal-trailer';
+const BASE_URL = 'https://api.themoviedb.org/3/movie/';
+const API_KEY = 'fa9433e46ed4abfaeb75bcf31f473feb';
 
 import { refs } from './refs';
 
 refs.sliderModal.addEventListener('click', openModal);
 refs.closeModalSliderBtn.addEventListener('click', toggleModal);
 refs.backdropSlider.addEventListener('click', onBackdropClick);
-
 
 function openModal(evt) {
   if (evt.currentTarget === evt.target) {
@@ -23,6 +25,11 @@ function openModal(evt) {
     })
     .finally(() => spinnerOff());
   spinnerOn();
+
+  refs.trailerBtn.addEventListener('click', () => fetchTrailer(currentId), {
+    once: true,
+  });
+
   toggleModal();
 }
 
@@ -46,3 +53,10 @@ function onEscPress(evt) {
     toggleModal();
   }
 }
+
+// щоб трейлер закривався при закритті модалки
+refs.closeModalBtn.addEventListener('click', () => {
+  document.querySelector('.modal-trailer')
+    ? (document.querySelector('.modal-trailer').innerHTML = '')
+    : null;
+});
