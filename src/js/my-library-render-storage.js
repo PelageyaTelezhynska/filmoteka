@@ -7,7 +7,7 @@ initFireBase();
 
 const db = getFirestore();
 
-const colId  = 'User01';
+const colId  = localStorage.getItem('UserID');
 const colRef = collection(db, colId );
 
 const divQueue = document.querySelector('.movies__list');
