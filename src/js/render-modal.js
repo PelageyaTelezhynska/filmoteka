@@ -51,5 +51,20 @@ export function renderMarkupModal(data) {
   </div>`;
   document.querySelector('.wrap-disc').innerHTML = markup;
 
+  document
+    .querySelector('.backdrop')
+    .setAttribute(
+      'style',
+      `background-image: url(https://image.tmdb.org/t/p/original/${data.backdrop_path}); background-position: center; background-size: cover;`
+    );
+  if (data.backdrop_path === null) {
+    document
+      .querySelector('.backdrop')
+      .setAttribute(
+        'style',
+        `background-image: url(${defaultImg}); background-position: center; background-size: cover;`
+      );
+  }
+
   addToLocale(data);
 }
