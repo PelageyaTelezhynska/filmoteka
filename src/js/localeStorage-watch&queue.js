@@ -6,7 +6,7 @@ initFireBase();
 
 const db = getFirestore();
 
-const colId  = localStorage.getItem('UserID');;
+const colId  = 'User01';
 const colRef = collection(db, colId );
 
 export function addToLocale(data) {
