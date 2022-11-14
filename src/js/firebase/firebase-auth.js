@@ -89,7 +89,6 @@ function GoogleSigIn() {
             Queue: [],
             Watched: [],
           });
-          console.log(userId);
         }
       });
     })

@@ -15,10 +15,10 @@ async function addDataWatched(object) {
       collection(db, 'filmoteka', auth.currentUser.email, 'watched'),
       object
     );
-    console.log(docRef.id);
-    console.log('FUNC DATA added to WATCHED');
+    // console.log(docRef.id);
+    // console.log('FUNC DATA added to WATCHED');
   } catch (e) {
-    console.error('Error adding document: ', e);
+    // console.error('Error adding document: ', e);
   }
 }
 
@@ -30,7 +30,7 @@ async function addDataQueue(object) {
     );
     console.dir(docRef);
   } catch (e) {
-    console.error('Error adding document: ', e);
+    // console.error('Error adding document: ', e);
   }
 }
 
@@ -38,14 +38,11 @@ async function addDataQueue(object) {
 async function getDataWatched() {
   const response = [];
   const querySnapshot = await getDocs(collection(db, 'filmoteca'));
-  console.log(querySnapshot);
+  // console.log(querySnapshot);
   querySnapshot.forEach(doc => {
     response.push(doc.data());
   });
-  console.log('response', response);
+  // console.log('response', response);
   return response;
 }
 
-// const data = getDataWatched();
-
-// console.log(data);
